@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chicken & Unicorn</title>
+
+  <link rel="stylesheet" type="text/css" href="./assets/css/app.css">
+</head>
+
+<body>
+  <section id="appContainer" class="main fadeOut front">
+    <div class="snow"></div>
+    <div id="loading">Loading...</div>
+  </section>
+  <div class="cal">
+    <div id="cal-year">2017</div>
+    <div id="cal-month">NOV</div>
+  </div>
+  <div id="nav-arrow-right" class="hidden">
+      <div class="round">
+        <div id="cta">
+          <span class="arrowRight primera next"></span>
+          <span class="arrowRight segunda next"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="nav-arrow-left" class="hidden">
+      <div class="round">
+        <div id="cta">
+          <span class="arrowLeft primera previous"></span>
+          <span class="arrowLeft segunda previous"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="firstpage" class="">
+    <div class="snow"></div>
+    <div id="particles-js"></div>
+    <div class="passwordHint fadeOut"></div>
+    <div class="inputArea">
+      <input id="input-ps" type="text" placeholder="password" maxlength="8"/>
+      <button id="btn-hint" class="inputArea-hint">hint</button>
+      <button id="btn-start" class="inputArea-start fadeOut">go</button>
+    </div>
+  </div>
+
+  <div id="page-bubbles">
+    <div class="bubble-container">
+      <svg id="bubbles" xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 950 850">
+        <g id="chat-bubble-wrapper" data-name="chat bubble" opacity="0" width="500" height="600">
+          <g id="chat-bubble" opacity="0">
+            <rect id="bubble" x="145.5" y="70.5" width="400" height="600" rx="47.37" ry="47.37" style="fill:#fff" />
+            <polygon id="bubble-tail" points="134.27 678.08 198.82 654.03 145.72 610.15 134.27 678.08" style="fill:#fff" />
+          </g>
+        </g>
+      </svg>
+      <div id="bubble-text-wrapper">
+        <span class="chat-text">Oh Hey!</span>
+    </div>
+    </div>
+  </div>
+  
+  <script src="./assets/js/rStats.js"></script>
+  <script src="./assets/js/rStats.extras.js"></script>
+  <script src="./assets/js/dat.gui.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./assets/js/particles.js"></script>
+  <script src="./assets/js/input.js"></script>
+</body>
+
+</html>

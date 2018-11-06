@@ -1,0 +1,137 @@
+import Config from '../../data/config';
+import DomUI from './domUI';
+import TweenMax from "gsap/TweenMax";
+
+// Manages all dat.GUI interactions
+export default class PageUpdate {
+    constructor(main, textures) {
+        this.bird = main.bird;
+        this.unicorn = main.unicorn;
+        this.camera = main.camera.threeCamera;
+        this.scene = main.scene;
+        this.textures = textures;
+        this.background = main.background;
+        this.currentScene = 0;
+        this.bubbles = main.bubbles;
+        this.spot = main.spot;
+        this.ready = false;
+        this.domUI = new DomUI();
+        this.meetTarget = false;
+    }
+
+    getCurrentScene() {
+      return this.currentScene;
+    }
+
+    initScene(){
+      var _this = this;
+        this.unicorn.init();
+        setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
+        this.currentScene = 0;
+  
+    }
+
+    startScene(){
+      var _this = this;
+      this.stopAll();
+      this.updateScene();
+      this.bird.init();
+      this.spot.init();
+      setInterval(this.spot.jump.bind(this.spot), 2000);
+      setInterval(this.bird.blink.bind(this.bird), 3000);
+      this.domUI.removeFirstPage();
+      this.ready = true;
+    }
+
+    nextScene() {
+       var _this = this;
+        if(this.currentScene < 13){
+            this.currentScene += 1;
+            this.stopAll();
+            this.updateScene();
+        }
+  
+      }
+
+      previousScene() {
+        var _this = this;
+        if(this.currentScene > 0){
+            this.currentScene -= 1;
+            this.stopAll()
+            setTimeout(_this.updateScene(), 2000);
+        }
+    
+      }
+
+      updateScene(){
+         this.resetGoals();
+         this.updateBg(); 
+         this.updateModelPos();
+         this.updateSpotPos();
+         this.updateDate();
+         this.updateDialogBubble();
+      }
+
+      updateBg(){
+        this.background.updateBg(Config.bgPresets[this.currentScene].x, Config.bgPresets[this.currentScene].y, Config.bgPresets[this.currentScene].z, this.textures[this.currentScene+1]);
+      }
+
+    
+      updateModelPos() {
+        let x = Config.modelPos[this.currentScene].bird.x;
+        let y = Config.modelPos[this.currentScene].bird.y;
+        let z = Config.modelPos[this.currentScene].bird.z;
+    
+        let ux = Config.modelPos[this.currentScene].unicorn.x;
+        let uy = Config.modelPos[this.currentScene].unicorn.y;
+        let uz = Config.modelPos[this.currentScene].unicorn.z;
+    
+        this.bird.mesh.position.set(x,y,z);
+        this.unicorn.mesh.position.set(ux,uy,uz);
+
+      }
+
+      updateSpotPos(){
+        let x = Config.spotPos[this.currentScene].x;
+        let y = Config.spotPos[this.currentScene].y;
+        let z = Config.spotPos[this.currentScene].z;
+        this.spot.spot.position.set(x,y,z);
+      }
+
+      updateDate(){
+        this.domUI.year.innerHTML = Config.date[this.currentScene].year;
+        this.domUI.month.innerHTML = Config.date[this.currentScene].month;
+
+      }
+
+      updateDialogBubble(){
+          this.bubbles.textLines = Config.chat[this.currentScene+1];
+
+      }
+
+      resetGoals(){
+           this.bubbles.reset();
+           this.bird.reset();
+           this.unicorn.reset();
+           this.meetTarget = false;
+      }
+
+
+      detectDistance(){
+        let dist = Math.abs(this.bird.mesh.position.x - this.spot.spot.position.x);
+
+        if(dist < 20){
+          this.meetTarget = true;
+          console.log("meet target at: "+this.currentScene);
+          this.bird.playAnimation(this.currentScene);
+          this.unicorn.playAnimation(this.currentScene);
+        }
+      }
+
+      stopAll(){
+        this.unicorn.forceStop();
+        this.bubbles.forceStop();
+      }
+
+
+}
