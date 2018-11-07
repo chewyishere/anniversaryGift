@@ -14,6 +14,7 @@ export default class domUI {
     this.bubbleText = $("#bubble-text");
     this.textContainer= $("#bubble-text-wrapper");
     this.appContainer = $("#appContainer");
+    this.bubblePos = $('#page-bubbles');
     }
 
     showArrow(){
@@ -28,6 +29,12 @@ export default class domUI {
     removeFirstPage(){
       this.firstpage.fadeOut(400).delay(200).remove();
     }
+
+    updateBubblePos(Pos){
+      this.bubblePos.css({top: Pos.x, left: Pos.y});
+    }
+
+
 
 }
     

@@ -83,9 +83,9 @@ body {
   color: hsl(335, 78%, 66%);
   top: 200px;
   position: absolute;
-  top: 60px;
-  left: 90px;
-  width: 38%;
+  top: 70px;
+  left: 100px;
+  width: 35%;
   margin: 1em;
   opacity: 0;
 }
@@ -319,10 +319,12 @@ background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9
 	border-radius:.25em;
 	background:transparent;
   transition:all .100s;
-  position: relative;
   box-sizing: border-box;
   width: 200px;
   text-transform: uppercase;
+  left: calc(50% - 100px);
+  position: absolute;
+  
 }
 
 	input:focus {
@@ -400,8 +402,9 @@ body {
   background: rgba(255,255,255,0.25);
   transition: all .300s;
   cursor: pointer;
-  left: 70%;
-  width: 90px;
+  top: 50px;
+  left: calc(50% - 50px);
+  width: 100px;
 }
 
 .inputArea-start{

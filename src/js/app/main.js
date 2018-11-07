@@ -102,7 +102,7 @@ export default class Main {
       this.light.placeTargetLight(this.unicorn.mesh);
 
     // this.light.placeTargetLight(this.unicorn);
-    // Start render which does not wait for model fully loaded
+
     this.render();
   }
 

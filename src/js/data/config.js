@@ -149,6 +149,15 @@ export default {
     { x: 0, y: 100, z: 0 }, //5 
   ],
 
+  bubblePos:[
+    { x: "0%", y: "50%" }, //0 
+    { x: 0, y: 100 }, //1 
+    { x: 0, y: 100 }, //2 
+    { x: 0, y: 100 }, //3 
+    { x: 0, y: 100 }, //4 
+    { x: 0, y: 100 }, //5 
+  ],
+
   // Model Pos for 12 Scenes
   modelPos: [
     {//0

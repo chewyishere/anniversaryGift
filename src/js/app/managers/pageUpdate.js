@@ -26,7 +26,7 @@ export default class PageUpdate {
     initScene(){
       var _this = this;
         this.unicorn.init();
-        setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
+        this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
         this.currentScene = 0;
   
     }
@@ -37,8 +37,8 @@ export default class PageUpdate {
       this.updateScene();
       this.bird.init();
       this.spot.init();
-      setInterval(this.spot.jump.bind(this.spot), 2000);
-      setInterval(this.bird.blink.bind(this.bird), 3000);
+      this.spotInterval = setInterval(this.spot.jump.bind(this.spot), 2000);
+      this.birdBlinkInterval = setInterval(this.bird.blink.bind(this.bird), 3000);
       this.domUI.removeFirstPage();
       this.ready = true;
     }
@@ -58,7 +58,7 @@ export default class PageUpdate {
         if(this.currentScene > 0){
             this.currentScene -= 1;
             this.stopAll()
-            setTimeout(_this.updateScene(), 2000);
+            this.updateScene();
         }
     
       }
@@ -73,7 +73,8 @@ export default class PageUpdate {
       }
 
       updateBg(){
-        this.background.updateBg(Config.bgPresets[this.currentScene].x, Config.bgPresets[this.currentScene].y, Config.bgPresets[this.currentScene].z, this.textures[this.currentScene+1]);
+        console.log(this.currentScene);
+        this.background.updateBg(this.currentScene,  this.textures[this.currentScene+1]);
       }
 
     
@@ -106,7 +107,7 @@ export default class PageUpdate {
 
       updateDialogBubble(){
           this.bubbles.textLines = Config.chat[this.currentScene+1];
-
+          setTimeout(this.domUI.updateBubblePos(Config.bubblePos[this.currentScene], 2000));
       }
 
       resetGoals(){
@@ -122,13 +123,15 @@ export default class PageUpdate {
 
         if(dist < 20){
           this.meetTarget = true;
-          console.log("meet target at: "+this.currentScene);
           this.bird.playAnimation(this.currentScene);
           this.unicorn.playAnimation(this.currentScene);
         }
       }
 
       stopAll(){
+        // clearInterval(this.spotInterval);
+        // clearInterval(this.birdBlinkInterval);
+        // clearInterval(this.uniBlinkInterval);
         this.unicorn.forceStop();
         this.bubbles.forceStop();
       }

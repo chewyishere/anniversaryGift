@@ -243,7 +243,6 @@ export default class DatGUI {
     const shadowNearGui = shadowFolder.add(Config.shadow, 'near', 0, 400).name('Near');
     shadowNearGui.onChange((value) => {
       this.controls.enableRotate = false;
-
       this.light.directionalLight.shadow.camera.near = value;
     });
     shadowNearGui.onFinishChange(() => {
