@@ -10,6 +10,7 @@ export default class PageUpdate {
         this.camera = main.camera.threeCamera;
         this.scene = main.scene;
         this.textures = textures;
+        this.light = main.light;
         this.background = main.background;
         this.currentScene = 0;
         this.bubbles = main.bubbles;
@@ -25,18 +26,20 @@ export default class PageUpdate {
 
     initScene(){
       var _this = this;
-        this.unicorn.init();
-        this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
-        this.currentScene = 0;
+      this.unicorn.init();
+      this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
+      this.currentScene = 0;
   
     }
 
     startScene(){
       var _this = this;
       this.stopAll();
-      this.updateScene();
       this.bird.init();
       this.spot.init();
+      this.background.init(this.textures);
+      this.light.spotLight.target = this.bird.mesh;
+      this.updateScene();
       this.spotInterval = setInterval(this.spot.jump.bind(this.spot), 2000);
       this.birdBlinkInterval = setInterval(this.bird.blink.bind(this.bird), 3000);
       this.domUI.removeFirstPage();
@@ -73,8 +76,7 @@ export default class PageUpdate {
       }
 
       updateBg(){
-        console.log(this.currentScene);
-        this.background.updateBg(this.currentScene,  this.textures[this.currentScene+1]);
+        this.background.updateBg(this.currentScene);
       }
 
     
@@ -97,6 +99,7 @@ export default class PageUpdate {
         let y = Config.spotPos[this.currentScene].y;
         let z = Config.spotPos[this.currentScene].z;
         this.spot.spot.position.set(x,y,z);
+        console.log(this.spot.spot.position) ;
       }
 
       updateDate(){

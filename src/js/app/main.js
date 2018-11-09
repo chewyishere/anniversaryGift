@@ -99,9 +99,6 @@ export default class Main {
      this.interaction = new Interaction(this);
     
       this.light.place('bird');
-      this.light.placeTargetLight(this.unicorn.mesh);
-
-    // this.light.placeTargetLight(this.unicorn);
 
     this.render();
   }

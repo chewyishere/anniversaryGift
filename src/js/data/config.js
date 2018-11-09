@@ -75,10 +75,10 @@ export default {
   directionalLight: {
     enabled: true,
     color: 0xffffff,
-    intensity: 0.5,
-    x: 200,
-    y: 200,
-    z: 200
+    intensity: 0.7,
+    x: 300,
+    y: 430,
+    z: 700
   },
 
   shadow: {
@@ -88,12 +88,14 @@ export default {
     mapWidth: 2048,
     mapHeight: 2048,
     near: 100,
-    far: 1200,
-    top: 400,
-    right: 400,
-    bottom: -400,
-    left: -400,
+    far: 1400,
+    top: 700,
+    right: 700,
+    bottom: -700,
+    left: -700,
+    fov: 30,
   },
+
   pointLight: {
     enabled: true,
     color: 0xffffff,
@@ -104,11 +106,28 @@ export default {
     z: 0
   },
 
+  spotLight: {
+    enabled: true,
+    color: 0xffffff,
+    intensity: 1,
+    distance: 115,
+    decay: 0,
+    penumbra: 0.3,
+    angle: 0.3,
+    x: -300,
+    y: 680,
+    z: -100,
+    near: 500,
+    far: 2000,
+    width: 2048,
+    height: 2048
+  },
+
   hemiLight: {
     enabled: true,
     color: 0xffffff,
     groundColor: 0xffffff,
-    intensity: 0.5,
+    intensity: 0.2,
     x: 0,
     y: 0,
     z: 0
@@ -141,8 +160,8 @@ export default {
 
   //Spot pos
   spotPos: [
-    { x: -100, y: 100, z: -100 }, //0 
-    { x: 0, y: 100, z: 0 }, //1 
+    { x: -150, y: 20, z: -100 }, //0 
+    { x: 0, y: 100, z: 0 }, //1
     { x: 0, y: 100, z: 0 }, //2 
     { x: 0, y: 100, z: 0 }, //3 
     { x: 0, y: 100, z: 0 }, //4 
@@ -161,8 +180,8 @@ export default {
   // Model Pos for 12 Scenes
   modelPos: [
     {//0
-      bird: { x: 700, y: 20, z: -100 },
-      unicorn: { x: -351, y: 40, z: -100 }
+      bird: { x: 600, y: 10, z: -100 },
+      unicorn: { x: -350, y: 40, z: -100 }
     },
     {//1
       bird: { x: 600, y: 0, z: 0 },
@@ -202,30 +221,6 @@ export default {
     {//4
       bird: { x: 0, y: 0, z: 0 },
       unicorn: { x: 0, y: 0, z: 0 }
-    }
-  ],
-
-  // Model events for 12 Scenes when bird reaches goals
-  modelAnime: [
-    {//0
-      bird: ["shy", "happy"],
-      unicorn: ["wait", "happy"]
-    },
-    {//1
-      bird: ["shy", "happy"],
-      unicorn: ["wait", "happy"]
-    },
-    {//2
-      bird: ["shy", "happy"],
-      unicorn: ["wait", "happy"]
-    },
-    {//3
-      bird: ["shy", "happy"],
-      unicorn: ["wait", "happy"]
-    },
-    {//4
-      bird: ["shy", "happy"],
-      unicorn: ["wait", "happy"]
     }
   ],
 

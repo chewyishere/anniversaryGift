@@ -13,6 +13,7 @@ export default class Light {
     // Ambient
     this.ambientLight = new THREE.AmbientLight(Config.ambientLight.color);
     this.ambientLight.visible = Config.ambientLight.enabled;
+    this.ambientLight.intensity = 1.2;
 
     // Point light
     this.pointLight = new THREE.PointLight(Config.pointLight.color, Config.pointLight.intensity, Config.pointLight.distance);
@@ -45,19 +46,25 @@ export default class Light {
     this.hemiLight.position.set(Config.hemiLight.x, Config.hemiLight.y, Config.hemiLight.z);
     this.hemiLight.visible = Config.hemiLight.enabled;
 
-  }
 
-  placeTargetLight(target){
-     var ambient1 = new THREE.AmbientLight(0xffffff, .5);
+    // Spot light
+    this.spotLight = new THREE.SpotLight(Config.spotLight.color, Config.spotLight.intensity);
+    this.spotLight.position.set(Config.spotLight.x, Config.spotLight.y, Config.spotLight.z);
+    this.spotLight.enabled = Config.spotLight.enabled;
+    this.spotLight.intensity = Config.spotLight.intensity;
+    this.spotLight.distance = Config.spotLight.distance;
+    this.spotLight.penumbra = Config.spotLight.penumbra;
+    this.spotLight.decay = Config.spotLight.decay;
+    this.spotLight.angle = Config.spotLight.angle;
 
-     this.spot1 = new THREE.SpotLight(0xffffff);
-     this.spot1.position.set(20, 20, 30);
-     this.spot1.target = target;
-     this.spot1.castShadow = true;
-     this.spot1.shadow.bias = 0.0001;
-     this.spot1.shadow.mapSize.width = 1024 * 2;
-     this.spot1.shadow.mapSize.height = 1024 * 2;
-     this.scene.add(this.spot1);
+    this.spotLight.castShadow = true;
+    this.spotLight.shadow.mapSize.width =  Config.spotLight.width;
+    this.spotLight.shadow.mapSize.height = Config.spotLight.height;
+    this.spotLight.shadow.camera.near = Config.spotLight.near;
+    this.spotLight.shadow.camera.far =  Config.spotLight.far;
+
+    // Shadow camera helper
+    this.spotLightHelper = new THREE.CameraHelper(this.spotLight.shadow.camera);
   }
 
   place(lightName, target) {
@@ -79,9 +86,12 @@ export default class Light {
         this.scene.add(this.hemiLight);
         break;
       case 'bird':
+       this.scene.add(this.directionalLight);
+      //  this.scene.add(this.directionalLightHelper);
         this.scene.add(this.ambientLight);
-        this.scene.add(this.directionalLight);
+        this.scene.add(this.spotLight);
         this.scene.add(this.hemiLight);
+        this.scene.add(this.spotLightHelper);
       break;
 
     }

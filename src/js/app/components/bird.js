@@ -5,7 +5,6 @@ import Geometry from '../helpers/geometry';
 import Helpers from '../../utils/helpers';
 import Config from '../../data/config';
 import TweenMax from "gsap/TweenMax";
-import { runInThisContext } from 'vm';
 
 // Loads in a single object from the config file
 export default class Bird {

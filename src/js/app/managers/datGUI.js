@@ -240,7 +240,7 @@ export default class DatGUI {
     shadowFolder.add(Config.shadow, 'helperEnabled').name('Helper Enabled').onChange((value) => {
       this.light.directionalLightHelper.visible = value;
     });
-    const shadowNearGui = shadowFolder.add(Config.shadow, 'near', 0, 400).name('Near');
+    const shadowNearGui = shadowFolder.add(Config.shadow, 'near', 0, 500).name('Near');
     shadowNearGui.onChange((value) => {
       this.controls.enableRotate = false;
       this.light.directionalLight.shadow.camera.near = value;
@@ -251,10 +251,10 @@ export default class DatGUI {
       this.light.directionalLight.shadow.map = null;
       this.light.directionalLightHelper.update();
     });
-    const shadowFarGui = shadowFolder.add(Config.shadow, 'far', 0, 1200).name('Far');
+
+    const shadowFarGui = shadowFolder.add(Config.shadow, 'far', 0, 3000).name('Far');
     shadowFarGui.onChange((value) => {
       this.controls.enableRotate = false;
-
       this.light.directionalLight.shadow.camera.far = value;
     });
     shadowFarGui.onFinishChange(() => {
@@ -263,7 +263,8 @@ export default class DatGUI {
       this.light.directionalLight.shadow.map = null;
       this.light.directionalLightHelper.update();
     });
-    const shadowTopGui = shadowFolder.add(Config.shadow, 'top', -400, 400).name('Top');
+
+    const shadowTopGui = shadowFolder.add(Config.shadow, 'top', -800, 800).name('Top');
     shadowTopGui.onChange((value) => {
       this.controls.enableRotate = false;
 
@@ -275,7 +276,7 @@ export default class DatGUI {
       this.light.directionalLight.shadow.map = null;
       this.light.directionalLightHelper.update();
     });
-    const shadowRightGui = shadowFolder.add(Config.shadow, 'right', -400, 400).name('Right');
+    const shadowRightGui = shadowFolder.add(Config.shadow, 'right', -800, 800).name('Right');
     shadowRightGui.onChange((value) => {
       this.controls.enableRotate = false;
 
@@ -287,7 +288,7 @@ export default class DatGUI {
       this.light.directionalLight.shadow.map = null;
       this.light.directionalLightHelper.update();
     });
-    const shadowBottomGui = shadowFolder.add(Config.shadow, 'bottom', -400, 400).name('Bottom');
+    const shadowBottomGui = shadowFolder.add(Config.shadow, 'bottom', -800, 800).name('Bottom');
     shadowBottomGui.onChange((value) => {
       this.controls.enableRotate = false;
 
@@ -299,7 +300,7 @@ export default class DatGUI {
       this.light.directionalLight.shadow.map = null;
       this.light.directionalLightHelper.update();
     });
-    const shadowLeftGui = shadowFolder.add(Config.shadow, 'left', -400, 400).name('Left');
+    const shadowLeftGui = shadowFolder.add(Config.shadow, 'left', -800, 800).name('Left');
     shadowLeftGui.onChange((value) => {
       this.controls.enableRotate = false;
 
@@ -328,7 +329,7 @@ export default class DatGUI {
     // Point Light
     const pointLightFolder = gui.addFolder('Point Light');
     pointLightFolder.add(Config.pointLight, 'enabled').name('Enabled').onChange((value) => {
-      this.light.pointLight.visible = value;
+      this.light.pointLight. gdhvisible = value;
     });
     pointLightFolder.addColor(Config.pointLight, 'color').name('Color').onChange((value) => {
       this.light.pointLight.color.setHex(value);
@@ -412,7 +413,6 @@ export default class DatGUI {
     const hemiLightPositionYGui = hemiLightFolder.add(Config.hemiLight, 'y', -500, 1000).name('Position Y');
     hemiLightPositionYGui.onChange((value) => {
       this.controls.enableRotate = false;
-
       this.light.hemiLight.position.y = value;
     });
     hemiLightPositionYGui.onFinishChange(() => {
@@ -427,5 +427,72 @@ export default class DatGUI {
     hemiLightPositionZGui.onFinishChange(() => {
       this.controls.enableRotate = true;
     });
-  }
+
+ 
+   // Hemi Light
+   const spotLightFolder = gui.addFolder('Spot Light');
+   spotLightFolder.addColor(Config.spotLight, 'color').name('Color').onChange((value) => {
+     this.light.spotLight.color.setHex(value);
+   });
+
+   const spotLightIntensityGui = spotLightFolder.add(Config.spotLight, 'intensity', 0, 2).name('Intensity');
+   spotLightIntensityGui.onChange((value) => {
+     this.light.spotLight.intensity = value;
+   });
+
+   const spotLightPositionXGui = spotLightFolder.add(Config.spotLight, 'x', -1000, 1000).name('Position X');
+   spotLightPositionXGui.onChange((value) => {
+     this.light.spotLight.position.x = value;
+   });
+
+   const spotLightPositionYGui = spotLightFolder.add(Config.spotLight, 'y', -500, 1000).name('Position Y');
+   spotLightPositionYGui.onChange((value) => {
+     this.light.spotLight.position.y = value;
+   });
+
+   const spotLightPositionZGui = spotLightFolder.add(Config.spotLight, 'z', -1000, 1000).name('Position Z');
+   spotLightPositionZGui.onChange((value) => {
+     this.controls.enableRotate = false;
+     this.light.spotLight.position.z = value;
+   });
+
+   const spotLightDecayGui = spotLightFolder.add(Config.spotLight, 'decay', 0, 2).name('decay');
+   spotLightDecayGui.onChange((value) => {
+    this.light.spotLight.decay = value;
+  });
+
+  const spotLightPenumbraGui = spotLightFolder.add(Config.spotLight, 'penumbra', 0, 1).name('penumbra');
+  spotLightPenumbraGui.onChange((value) => {
+    this.light.spotLight.penumbra = value;
+  });
+
+  const spotLightAngleGui = spotLightFolder.add(Config.spotLight, 'angle', 0, 2).name('angle');
+  spotLightAngleGui.onChange((value) => {
+    this.light.spotLight.angle = value;
+  });
+
+  const spotShadowFarGui = spotLightFolder.add(Config.spotLight, 'far', 0, 4000).name('Far');
+  spotShadowFarGui.onChange((value) => {
+    this.light.spotLight.shadow.camera.far = value;
+  });
+
+  spotShadowFarGui.onFinishChange(() => {
+    this.light.spotLight.shadow.map.dispose();
+    this.light.spotLight.shadow.map = null;
+    this.light.spotLightHelper.update();
+  });
+
+  const spotShadownNearGui = spotLightFolder.add(Config.spotLight, 'near', 0, 1000).name('Near');
+  spotShadownNearGui.onChange((value) => {
+    this.light.spotLight.shadow.camera.near = value;
+  });
+
+
+  spotShadowNearGui.onFinishChange(() => {
+    this.light.spotLight.shadow.map.dispose();
+    this.light.spotLight.shadow.map = null;
+    this.light.spotLightHelper.update();
+  });
+
+ }
 }

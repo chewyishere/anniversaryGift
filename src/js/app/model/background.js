@@ -1,31 +1,26 @@
 import * as THREE from 'three';
 import Config from '../../data/config';
 import Material from '../helpers/material';
+import TweenMax from "gsap/TweenMax";
 
 export default class Background {
   constructor(scene) {
     this.scene = scene;
-    this.bg = null;
-    this.floor = null;
-    this.prevBg = null;
-    this.prevFloor = null;
-    this.bgSet = new THREE.Group();
-   
+    this.allBackgrounds = new THREE.Group();
+    this.currentBg = 0;
+    this.screenWidth = window.innerWidth * 2.5;
+  
   }
 
-  init(){
-    addLight();
-    this.scene.add(this.bgSet);
+  init(tex){
+    this.allBackgrounds.position.set(this.screenWidth,0,0);
+    this.scene.add(this.allBackgrounds);
+    for(var i=0; i < Config.bgPresets.length; i++ ){
+      this.prepareBg(i,tex[i+1]);
+    }
   }
-
-  removePrevBg(){
-    // after shuffle
-    this.scene.remove(this.bg);
-    this.scene.remove(this.floor);
-  }
-
+ 
   prepareBg(idx,tex){
-    //bg
     let x = Config.bgPresets[idx].x;
     let y = Config.bgPresets[idx].y;
     let z = Config.bgPresets[idx].z;
@@ -33,48 +28,45 @@ export default class Background {
     let bgGemo = new THREE.PlaneBufferGeometry(x,y);
     bgGemo.applyMatrix(new THREE.Matrix4().makeTranslation(0,y/2,0));
    
-    let mat = new THREE.MeshBasicMaterial();
+    let mat = new THREE.MeshPhongMaterial();
     mat.map = tex;
 
-    this.bg = new THREE.Mesh(bgGemo, mat);
-    this.bg.material.needsUpdate = true;
-    this.bg.position.z = z;
+    let bg = new THREE.Mesh(bgGemo, mat);
+    bg.material.needsUpdate = true;
+    bg.material.side = THREE.DoubleSide;
+    bg.position.z = z/2;
+    bg.position.x = 0;
+    bg.receiveShadow = true;
 
     //floor
-    this.floor = new THREE.Mesh(new THREE.PlaneGeometry(x,y), new THREE.MeshPhongMaterial({color: 0xbbbbbb}));
-    this.floor.material.side = THREE.DoubleSide;
-    this.floor.receiveShadow = true;
-    this.floor.castShadow = true;
-    this.floor.position.y = 0;
-    this.floor.rotation.x =  Math.PI/2;
+    let floor = new THREE.Mesh(new THREE.PlaneGeometry(x,y), new THREE.MeshPhongMaterial({color: 0xbbbbbb}));
+    floor.material.side = THREE.DoubleSide;
+    floor.receiveShadow = true;
+    floor.position.y = 0;
+    floor.position.x = 0;
+    floor.position.z = 0;
+    floor.rotation.x =  Math.PI/2;
 
-    //this.bgSet.position.z = 200;
-    this.bgSet.add(this.bg);
-    this.bgSet.add(this.floor);
+    let bgSet = new THREE.Group();
+    bgSet.position.set (this.screenWidth * idx, 0, 0);
+    bgSet.add(bg);
+    bgSet.add(floor);
 
+    this.allBackgrounds.add(bgSet);
 
   }
 
-  addLight(){
-    this.spot1 = new THREE.SpotLight(0xffffff);
-    this.spot1.position.set(20, 20, 30);
-    this.spot1.castShadow = true;
-    this.spot1.shadow.bias = 0.0001;
-    this.spot1.shadow.mapSize.width = 1024 * 2;
-    this.spot1.shadow.mapSize.height = 1024 * 2;
-    this.scene.add(this.spot1);
-  }
-
-  shuffleBg(){
-    this.prevBg = this.bg;
-    this.prevFloor = this.floor;
-  }
-
-  updateBg(idx,tex){
-    console.log(idx);
-    this.prepareBg(idx,tex);
-   // this.shuffleBg();
-
+  updateBg(idx){
+    let isNext = (idx >= this.currentBg) ? true : false;
+    let speed = 0.8;
+    let dis = this.screenWidth.toString();
+    let moveX = isNext? ( "-=" + dis)  : ( "+=" + dis);
+     
+    TweenMax.to(this.allBackgrounds.position, speed, {x:moveX, ease:Back.easeOut, onComplete: function(){
+      console.log(this.target.x);
+    }});
+    this.currentBg = idx; 
+   
   }
 
 }
