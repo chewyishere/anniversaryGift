@@ -33,10 +33,10 @@ export default class Texture {
             texture.anisotropy = maxAnisotropy;
 
             // Resolve Promise with object of texture if it is instance of THREE.Texture
-            const modelOBJ = {};
-            modelOBJ[imageFile.name] = texture;
-            if(modelOBJ[imageFile.name] instanceof THREE.Texture)
-              resolve(modelOBJ);
+            const bgTextures = {};
+            bgTextures[imageFile.name] = texture;
+            if(bgTextures[imageFile.name] instanceof THREE.Texture)
+              resolve(bgTextures);
           },
           Helpers.logProgress(),
           xhr => reject(new Error(xhr + 'An error occurred loading while loading ' + imageFile.image))

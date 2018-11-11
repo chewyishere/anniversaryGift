@@ -66,14 +66,16 @@ export default class Main {
     this.texture.load().then(() => {
       this.manager = new THREE.LoadingManager();
 
-      // onProgress callback
-      this.manager.onProgress = (item, loaded, total) => {
-        console.log(`${item}: ${loaded} ${total}`);
-      };
+      // // onProgress callback
+      // this.manager.onProgress = (item, loaded, total) => {
+      //   console.log(`${item}: ${loaded} ${total}`);
+      //   console.log("loading!");
+      // };
 
-      // All loaders done now
-      //this.manager.onLoad = () => {
-      // Set up interaction manager with the app now that the model is finished loading
+      // // All loaders done now
+      // this.manager.onLoad = () => {
+      //   console.log("done loading!");
+      // // Set up interaction manager with the app now that the model is finished loading
 
       // Add dat.GUI controls if dev
       if (Config.isDev) {
@@ -84,7 +86,7 @@ export default class Main {
       Config.isLoaded = true;
       this.container.querySelector('#loading').style.display = 'none';
 
-
+   // }
     });
 
      this.bubbles = new Bubbles();

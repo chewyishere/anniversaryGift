@@ -1,6 +1,5 @@
 import Config from '../../data/config';
 import DomUI from './domUI';
-import TweenMax from "gsap/TweenMax";
 
 // Manages all dat.GUI interactions
 export default class PageUpdate {
@@ -25,7 +24,6 @@ export default class PageUpdate {
     }
 
     initScene(){
-      var _this = this;
       this.unicorn.init();
       this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
       this.currentScene = 0;
@@ -33,7 +31,6 @@ export default class PageUpdate {
     }
 
     startScene(){
-      var _this = this;
       this.stopAll();
       this.bird.init();
       this.spot.init();
@@ -47,7 +44,6 @@ export default class PageUpdate {
     }
 
     nextScene() {
-       var _this = this;
         if(this.currentScene < 13){
             this.currentScene += 1;
             this.stopAll();
@@ -57,7 +53,6 @@ export default class PageUpdate {
       }
 
       previousScene() {
-        var _this = this;
         if(this.currentScene > 0){
             this.currentScene -= 1;
             this.stopAll()
@@ -99,7 +94,6 @@ export default class PageUpdate {
         let y = Config.spotPos[this.currentScene].y;
         let z = Config.spotPos[this.currentScene].z;
         this.spot.spot.position.set(x,y,z);
-        console.log(this.spot.spot.position) ;
       }
 
       updateDate(){
@@ -132,9 +126,6 @@ export default class PageUpdate {
       }
 
       stopAll(){
-        // clearInterval(this.spotInterval);
-        // clearInterval(this.birdBlinkInterval);
-        // clearInterval(this.uniBlinkInterval);
         this.unicorn.forceStop();
         this.bubbles.forceStop();
       }

@@ -16,10 +16,46 @@ export default {
   texture: {
     path: './assets/textures/',
     imageFiles: [
-      { name: '1', image: '1.jpg' },
-      { name: '2', image: '2.jpg' },
-      { name: '3', image: '3.jpg' },
-      { name: '4', image: '4.jpg' }
+      { name: '1', image: '1-1.png' },
+      { name: '2', image: '1-2.png' },
+      { name: '3', image: '1-3.png' },
+      { name: '4', image: '1-4.png' },
+      { name: '5', image: '1-5.jpg' },
+      { name: '6', image: '2-1.png' },
+      { name: '7', image: '2-2.png' },
+      { name: '8', image: '2-3.png' },
+      { name: '9', image: '2-4.png' },
+      { name: '10', image: '2-5.jpg' },
+      { name: '11', image: '3-1.png' },
+      { name: '12', image: '3-2.png' },
+      { name: '13', image: '3-3.png' },
+      { name: '14', image: '3-4.png' },
+      { name: '15', image: '3-5.jpg' },
+      { name: '16', image: '4-1.png' },
+      { name: '17', image: '4-2.png' },
+      { name: '18', image: '4-3.png' },
+      { name: '19', image: '4-4.png' },
+      { name: '20', image: '4-5.png' },
+      { name: '21', image: '5-1.png' },
+      { name: '22', image: '5-2.png' },
+      { name: '23', image: '5-3.png' },
+      { name: '24', image: '5-4.jpg' },
+      { name: '25', image: '5-5.jpg' },
+      { name: '26', image: '6-1.png' },
+      { name: '27', image: '6-2.png' },
+      { name: '28', image: '6-3.png' },
+      { name: '29', image: '6-4.jpg' },
+      { name: '30', image: '6-5.jpg' },
+      { name: '31', image: '7-1.png' },
+      { name: '32', image: '7-2.png' },
+      { name: '33', image: '7-3.png' },
+      { name: '34', image: '7-4.jpg' },
+      { name: '35', image: '7-5.jpg' },
+      { name: '36', image: '8-1.png' },
+      { name: '37', image: '8-2.png' },
+      { name: '38', image: '8-3.png' },
+      { name: '39', image: '8-4.png' },
+      { name: '40', image: '8-5.jpg' }
     ]
   },
   mesh: {
@@ -33,7 +69,7 @@ export default {
   },
   fog: {
     color: 0xffffff,
-    near: 0.0006
+    near: 0.0001
   },
   camera: {
     fov: 60,
@@ -42,7 +78,7 @@ export default {
     aspect: 1,
     posX: 0,
     posY: 300,
-    posZ: 1000
+    posZ: 800
   },
   controls: {
     enabled: true,
@@ -166,6 +202,14 @@ export default {
     { x: 0, y: 100, z: 0 }, //3 
     { x: 0, y: 100, z: 0 }, //4 
     { x: 0, y: 100, z: 0 }, //5 
+    { x: 0, y: 100, z: 0 }, //6
+    { x: 0, y: 100, z: 0 }, //7 
+    { x: 0, y: 100, z: 0 }, //8 
+    { x: 0, y: 100, z: 0 }, //9 
+    { x: 0, y: 100, z: 0 }, //10 
+    { x: 0, y: 100, z: 0 }, //11
+    { x: 0, y: 100, z: 0 }, //12
+    { x: 0, y: 100, z: 0 }, //13
   ],
 
   bubblePos:[
@@ -175,6 +219,9 @@ export default {
     { x: 0, y: 100 }, //3 
     { x: 0, y: 100 }, //4 
     { x: 0, y: 100 }, //5 
+    { x: 0, y: 100 }, //6
+    { x: 0, y: 100 }, //7
+    { x: 0, y: 100 }, //8 
   ],
 
   // Model Pos for 12 Scenes
@@ -198,6 +245,18 @@ export default {
     {//4
       bird: { x: 700, y: 0, z: 0 },
       unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//5
+      bird: { x: 500, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//6
+      bird: { x: 700, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//7
+      bird: { x: 700, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
     }
   ],
   // Model Rotation for 12 Scenes
@@ -219,6 +278,26 @@ export default {
       unicorn: { x: 0, y: 0, z: 0 }
     },
     {//4
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//5
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//6
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//7
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//8
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//9
       bird: { x: 0, y: 0, z: 0 },
       unicorn: { x: 0, y: 0, z: 0 }
     }
@@ -256,13 +335,32 @@ export default {
     ["2-1", "2-2", "2-3"],
     ["3-1", "3-2", "3-3"],
     ["4-1", "4-2", "4-3"],
-    ["5-1", "5-2", "5-3"]
+    ["5-1", "5-2", "5-3"],
+    ["6-1", "6-2", "6-3"],
+    ["7-1", "7-2", "7-3"],
+    ["8-1", "8-2", "8-3"],
+    ["9-1", "9-2", "9-3"],
   ],
 
   bgPresets: [
-    { x: 1000, y: 500, z: -500 },
-    { x: 1000, y: 700, z: -700 },
-    { x: 2000, y: 1000, z: -800 },
-    { x: 4000, y: 3000, z: -500 },
+    { x: 1280, y: 720, z: -500 },
+    { x: 1200, y: 802, z: -700 },
+    { x: 970, y: 582, z: -800 },
+    { x: 957, y: 718, z: -500 },
+    { x: 1512, y: 900, z: -600 },
+    { x: 1280, y: 720, z: -700 },
+    { x: 1512, y: 802, z: -500 },
+    { x: 970, y: 800, z: -700 }
+  ],
+
+  bgRot:[
+    [Math.PI/4 , 0 , -Math.PI/4],
+    [Math.PI/4 , 0 , -Math.PI/4],
+    [Math.PI/4 , 0 , -Math.PI/4],
+    [Math.PI/4 , 0 , -Math.PI/4],    
+    [Math.PI/4 , 0 , -Math.PI/4],
+    [Math.PI/4 , 0 , -Math.PI/4],
+    [Math.PI/4 , 0 , -Math.PI/4],
+    [Math.PI/4 , 0 , -Math.PI/4]
   ]
 };
