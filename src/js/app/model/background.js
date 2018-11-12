@@ -80,10 +80,7 @@ export default class Background {
     floor.position.z = 0;
     floor.rotation.x =  Math.PI/2;
     floor.name = "floor";
-
-    if(texFloor){
-      floor.material.map = texFloor;
-    }
+    floor.material.map = texFloor;
 
     var bgSet = new THREE.Group();
     bgSet.position.set (this.screenWidth * idx, 0, 0);

@@ -55,7 +55,32 @@ export default {
       { name: '37', image: '8-2.png' },
       { name: '38', image: '8-3.png' },
       { name: '39', image: '8-4.png' },
-      { name: '40', image: '8-5.jpg' }
+      { name: '40', image: '8-5.jpg' },
+      { name: '41', image: '9-1.png' },
+      { name: '42', image: '9-2.png' },
+      { name: '43', image: '9-3.png' },
+      { name: '44', image: '9-4.jpg' },
+      { name: '45', image: '9-5.jpg' },
+      { name: '46', image: '10-1.png' },
+      { name: '47', image: '10-2.png' },
+      { name: '48', image: '10-3.png' },
+      { name: '49', image: '10-4.jpg' },
+      { name: '50', image: '10-5.jpg' },
+      { name: '51', image: '11-1.png' },
+      { name: '52', image: '11-2.png' },
+      { name: '53', image: '11-3.png' },
+      { name: '54', image: '11-4.jpg' },
+      { name: '55', image: '11-5.jpg' },
+      { name: '56', image: '12-1.png' },
+      { name: '57', image: '12-2.png' },
+      { name: '58', image: '12-3.png' },
+      { name: '59', image: '12-4.jpg' },
+      { name: '60', image: '12-5.jpg' },
+      { name: '61', image: '13-1.png' },
+      { name: '62', image: '13-2.png' },
+      { name: '63', image: '13-3.png' },
+      { name: '64', image: '13-4.jpg' },
+      { name: '65', image: '13-5.jpg' }
     ]
   },
   mesh: {
@@ -78,7 +103,7 @@ export default {
     aspect: 1,
     posX: 0,
     posY: 300,
-    posZ: 800
+    posZ: 1200
   },
   controls: {
     enabled: true,
@@ -197,11 +222,11 @@ export default {
   //Spot pos
   spotPos: [
     { x: -150, y: 20, z: -100 }, //0 
-    { x: 0, y: 100, z: 0 }, //1
-    { x: 0, y: 100, z: 0 }, //2 
-    { x: 0, y: 100, z: 0 }, //3 
-    { x: 0, y: 100, z: 0 }, //4 
-    { x: 0, y: 100, z: 0 }, //5 
+    { x: -150, y: 20, z: -100 }, //1
+    { x: -150, y: 20, z: -100 }, //2 
+    { x: -150, y: 20, z: -100 }, //3 
+    { x: -150, y: 20, z: -100 }, //4 
+    { x: -150, y: 20, z: -100 }, //5
     { x: 0, y: 100, z: 0 }, //6
     { x: 0, y: 100, z: 0 }, //7 
     { x: 0, y: 100, z: 0 }, //8 
@@ -222,6 +247,11 @@ export default {
     { x: 0, y: 100 }, //6
     { x: 0, y: 100 }, //7
     { x: 0, y: 100 }, //8 
+    { x: 0, y: 100 }, //9
+    { x: 0, y: 100 }, //10 
+    { x: 0, y: 100 }, //11
+    { x: 0, y: 100 }, //12
+    { x: 0, y: 100 }, //13
   ],
 
   // Model Pos for 12 Scenes
@@ -255,6 +285,30 @@ export default {
       unicorn: { x: -500, y: 0, z: 0 }
     },
     {//7
+      bird: { x: 700, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//8
+      bird: { x: 500, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//9
+      bird: { x: 700, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//10
+      bird: { x: 500, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//11
+      bird: { x: 700, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//12
+      bird: { x: 700, y: 0, z: 0 },
+      unicorn: { x: -500, y: 0, z: 0 }
+    },
+    {//13
       bird: { x: 700, y: 0, z: 0 },
       unicorn: { x: -500, y: 0, z: 0 }
     }
@@ -300,6 +354,22 @@ export default {
     {//9
       bird: { x: 0, y: 0, z: 0 },
       unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//10
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//11
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//12
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
+    },
+    {//13
+      bird: { x: 0, y: 0, z: 0 },
+      unicorn: { x: 0, y: 0, z: 0 }
     }
   ],
 
@@ -340,27 +410,42 @@ export default {
     ["7-1", "7-2", "7-3"],
     ["8-1", "8-2", "8-3"],
     ["9-1", "9-2", "9-3"],
+    ["10-1", "10-2", "10-3"],
+    ["11-1", "11-2", "11-3"],
+    ["12-1", "12-2", "12-3"],
+    ["13-1", "13-2", "13-3"],
   ],
 
   bgPresets: [
-    { x: 1280, y: 720, z: -500 },
-    { x: 1200, y: 802, z: -700 },
-    { x: 970, y: 582, z: -800 },
-    { x: 957, y: 718, z: -500 },
-    { x: 1512, y: 900, z: -600 },
-    { x: 1280, y: 720, z: -700 },
-    { x: 1512, y: 802, z: -500 },
-    { x: 970, y: 800, z: -700 }
+    { x: 1024, y: 512, z: -700 }, //1
+    { x: 1200, y: 802, z: -700 }, //2
+    { x: 970, y: 582, z: -700 }, //3
+    { x: 1024, y: 512, z: -500 }, //4
+    { x: 1512, y: 900, z: -800 }, //5
+    { x: 1280, y: 720, z: -700 }, //6
+    { x: 1512, y: 802, z: -800 }, //7 
+    { x: 970, y: 800, z: -400 }, //8    
+    { x: 1280, y: 864, z: -700 }, //9
+    { x: 1024, y: 512, z: -700 }, //10
+    { x: 1280, y: 720, z: -500 }, //11
+    { x: 1280, y: 720, z: -700 },//12
+    { x: 1280, y: 720, z: -700 },//13
+    { x: 1280, y: 720, z: -700 },//14
   ],
 
   bgRot:[
-    [Math.PI/4 , 0 , -Math.PI/4],
-    [Math.PI/4 , 0 , -Math.PI/4],
-    [Math.PI/4 , 0 , -Math.PI/4],
-    [Math.PI/4 , 0 , -Math.PI/4],    
-    [Math.PI/4 , 0 , -Math.PI/4],
-    [Math.PI/4 , 0 , -Math.PI/4],
-    [Math.PI/4 , 0 , -Math.PI/4],
-    [Math.PI/4 , 0 , -Math.PI/4]
+    [Math.PI/4 , 0 , -Math.PI/4], //1
+    [Math.PI/4 , 0 , -Math.PI/4], //2
+    [Math.PI/4 , 0 , -Math.PI/4], //3
+    [Math.PI/4 , 0 , -Math.PI/4], //4
+    [Math.PI/4 , 0 , -Math.PI/4], //5
+    [Math.PI/4 , 0 , -Math.PI/4], //6
+    [Math.PI/4 , 0 , -Math.PI/4], //7
+    [Math.PI/4 , 0 , -Math.PI/4], //8
+    [Math.PI/4 , 0 , -Math.PI/4], //9
+    [Math.PI/4 , 0 , -Math.PI/4], //10
+    [Math.PI/4 , 0 , -Math.PI/4], //11
+    [Math.PI/4 , 0 , -Math.PI/4], //12
+    [Math.PI/4 , 0 , -Math.PI/4], //13
   ]
 };
