@@ -219,23 +219,6 @@ export default {
     z: 0
   },
 
-  //Spot pos
-  spotPos: [
-    { x: -150, y: 20, z: -100 }, //0 
-    { x: -150, y: 20, z: -100 }, //1
-    { x: -150, y: 20, z: -100 }, //2 
-    { x: -150, y: 20, z: -100 }, //3 
-    { x: -150, y: 20, z: -100 }, //4 
-    { x: -150, y: 20, z: -100 }, //5
-    { x: 0, y: 100, z: 0 }, //6
-    { x: 0, y: 100, z: 0 }, //7 
-    { x: 0, y: 100, z: 0 }, //8 
-    { x: 0, y: 100, z: 0 }, //9 
-    { x: 0, y: 100, z: 0 }, //10 
-    { x: 0, y: 100, z: 0 }, //11
-    { x: 0, y: 100, z: 0 }, //12
-    { x: 0, y: 100, z: 0 }, //13
-  ],
 
   bubblePos:[
     { x: "0%", y: "50%" }, //0 
@@ -254,63 +237,83 @@ export default {
     { x: 0, y: 100 }, //13
   ],
 
+
+    //Spot pos
+    spotPos: [
+      { x: -60, y: 20, z: 0 }, //0 
+      { x: 0, y: 20, z: 0 }, //1
+      { x: 0, y: 20, z: 0 }, //2 train
+      { x: 200, y: 20, z: -150 }, //3 trampolian
+      { x: 100, y: 20, z: 0 }, //4 snow
+      { x: 50, y: 20, z: 0 }, //5 snow2
+      { x: 200, y: 20, z: 0 }, //6 green
+      { x: 50, y: 20, z: 300 }, 
+      { x: 50, y: 20, z: 0 }, //8 shanghai
+      { x: 200, y: 20, z: -150  }, //9 
+      { x: 80, y: 20, z: 0 }, //10 
+      { x: 50, y:20, z: 0 }, //11
+      { x: -200, y: 20, z: 0 }, //12
+      { x: 50, y: 120, z: 0 }, //13
+    ],
+
+    
   // Model Pos for 12 Scenes
   modelPos: [
     {//0
-      bird: { x: 600, y: 10, z: -100 },
-      unicorn: { x: -350, y: 40, z: -100 }
+      bird: { x: 600, y: 10, z: 0 },
+      unicorn: { x: -200, y: 40, z: 0 }
     },
     {//1
-      bird: { x: 600, y: 0, z: 0 },
-      unicorn: { x: -500, y: 50, z: 0 }
+      bird: { x: 800, y: 0, z: 0 },
+      unicorn: { x: -175, y: 40, z: 0 }
     },
-    {//2
-      bird: { x: 200, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+    {//2 train
+      bird: { x: 800, y: 0, z: 0 },
+      unicorn: { x: -100, y: 40, z: 0 }
     },
-    {//3
-      bird: { x: 500, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+    {//3 bklynzoo
+      bird: { x: 700, y: 0, z: -150 },
+      unicorn: { x: -150, y: 40, z: -150 }
     },
-    {//4
+    {//4 snow
       bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: -100, y: 40, z: 0 }
     },
-    {//5
+    {//5 snow2
       bird: { x: 500, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: -100, y: 40, z: 0 }
     },
-    {//6
+    {//6 bday
       bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: 100, y: 40, z: 0 }
     },
-    {//7
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+    {//7 pink
+      bird: { x: 700, y: 0, z: 300 },
+      unicorn: { x: -100, y: 40, z: 300 }
     },
-    {//8
+    {//8 shanghai
       bird: { x: 500, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: -100, y: 40, z: 0 }
     },
-    {//9
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+    {//9 fireworks 
+      bird: { x: 700, y: 0, z: -150 },
+      unicorn: { x: -200, y: 40, z: -150 }
     },
-    {//10
+    {//10 6flag
       bird: { x: 500, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: -80, y: 40, z: 0 }
     },
     {//11
       bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: -100, y: 40, z: 0 }
     },
     {//12
       bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      unicorn: { x: -350, y: 40, z: 0 }
     },
     {//13
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -500, y: 0, z: 0 }
+      bird: { x: 700, y: 0, z: 50 },
+      unicorn: { x: -800, y: 40, z: 50 }
     }
   ],
   // Model Rotation for 12 Scenes
@@ -321,7 +324,7 @@ export default {
     },
     {//1
       bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
+      unicorn: { x: 0, y: -1, z: 0 }
     },
     {//2
       bird: { x: 0, y: 0, z: 0 },
