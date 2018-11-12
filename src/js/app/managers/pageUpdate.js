@@ -93,8 +93,6 @@ export default class PageUpdate {
         let x = Config.spotPos[this.currentScene].x;
         let y = Config.spotPos[this.currentScene].y;
         let z = Config.spotPos[this.currentScene].z;
-        console.log("spotPos x:");
-        console.log(Config.spotPos[this.currentScene].x);
         this.spot.spot.position.set(x,y,z);
       }
 
@@ -106,7 +104,6 @@ export default class PageUpdate {
 
       updateDialogBubble(){
           this.bubbles.textLines = Config.chat[this.currentScene+1];
-          setTimeout(this.domUI.updateBubblePos(Config.bubblePos[this.currentScene], 2000));
       }
 
       resetGoals(){
