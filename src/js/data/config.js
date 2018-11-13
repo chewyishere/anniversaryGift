@@ -81,25 +81,9 @@ export default {
       { name: '63', image: '13-3.png' },
       { name: '64', image: '13-4.jpg' },
       { name: '65', image: '13-5.jpg' }
-    ],
-    bgFiles: [
-      { name: '1', image: 'full-house.jpg' }, //snow
-      { name: '2', image: 'full-shanghai.jpg' }, //360 house
     ]
   },
-
-  backgroundImage: [
-    {
-      color: 'linear-gradient(to bottom, rgba(117, 114, 113, 0.8) 10%, rgba(40, 49, 77, 0.8) 30%, rgba(29, 35, 71, 0.8) 50%, rgba(19, 25, 28, 0.8) 80%, rgba(15, 14, 14, .8) 100%)',
-      image: 'https://media.giphy.com/media/UdTLLJIrxZcY0/giphy.gif'
-    },
-    {
-      color: 'linear-gradient(to bottom, rgba(117, 114, 113, 0.8) 10%, rgba(40, 49, 77, 0.8) 30%, rgba(29, 35, 71, 0.8) 50%, rgba(19, 25, 28, 0.8) 80%, rgba(15, 14, 14, .8) 100%)',
-      image: 'https://38.media.tumblr.com/tumblr_m00c3czJkM1qbukryo1_500.gif'
-    }
-  ],
-
-
+  
   mesh: {
     enableHelper: false,
     wireframe: false,
@@ -119,8 +103,8 @@ export default {
     far: 3000,
     aspect: 1,
     posX: 0,
-    posY: 300,
-    posZ: 1200
+    posY: 500,
+    posZ: 1000
   },
   controls: {
     enabled: true,
@@ -224,80 +208,80 @@ export default {
   },
     //Spot pos
     spotPos: [
-      { x: -60, y: 20, z: 0 }, //0 
-      { x: 0, y: 20, z: 0 }, //1
-      { x: 0, y: 20, z: 0 }, //2 train
-      { x: 200, y: 20, z: -150 }, //3 trampolian
-      { x: 100, y: 20, z: 0 }, //4 snow
-      { x: 0, y: 20, z: 0 }, //5 snow2
-      { x: 200, y: 20, z: 0 }, //6 green
-      { x: 0, y: 20, z: 300 }, //pink
-      { x: 50, y: 20, z: 0 }, //8 shanghai
-      { x: 200, y: 20, z: -150  }, //9 
-      { x: 80, y: 20, z: 0 }, //10 
-      { x: 0, y:20, z: 0 }, //11
-      { x: -200, y: 20, z: 0 }, //12
-      { x: 50, y: 120, z: 0 }, //13
+      { x: -60, y: 0, z: 0 }, //0 
+      { x: 100, y: 0, z: 0 }, //1
+      { x: -50, y: 0, z: 0 }, //2 train
+      { x: 200, y: 0, z: -150 }, //3 trampolian
+      { x: 50, y: 0, z: 0 }, //4 snow need to fix
+      { x: 0, y: 0, z: 300 }, //5 snow2
+      { x: 100, y: 0, z: -50 }, //6 green
+      { x: -50, y: 0, z: 0 }, //pink
+      { x: 50, y: 0, z: 0 }, //8 shanghai
+      { x: 200, y: 0, z: -150  }, //9 
+      { x: 80, y: 0, z: 0 }, //10 
+      { x: -50, y: 0, z: 0 }, //11 nathan
+      { x: -200, y: 0, z: 0 }, //12
+      { x: 50, y: 0, z: 0 }, //13
     ],
 
     
   // Model Pos for 12 Scenes
   modelPos: [
     {//0
-      bird: { x: 600, y: 10, z: 0 },
-      unicorn: { x: -200, y: 40, z: 0 }
+      bird: { x: 600, y: -100, z: 0 },
+      unicorn: { x: -200, y: -70, z: 0 }
     },
     {//1
-      bird: { x: 800, y: 0, z: 0 },
-      unicorn: { x: -175, y: 40, z: 0 }
+      bird: { x: 800, y:-100, z: 0 },
+      unicorn: { x: -175, y: -70, z: 0 }
     },
     {//2 train
-      bird: { x: -700, y: 0, z: 0 },
-      unicorn: { x: 100, y: 40, z: 0 }
+      bird: { x: -700, y:-100, z: 0 },
+      unicorn: { x: 100, y: -70, z: 0 }
     },
     {//3 bklynzoo
-      bird: { x: 700, y: 0, z: -150 },
-      unicorn: { x: -150, y: 40, z: -150 }
+      bird: { x: 700, y:-100, z: -150 },
+      unicorn: { x: -150, y: -70, z: -150 }
     },
     {//4 snow
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -100, y: 40, z: 0 }
+      bird: { x: 700, y:-100, z: 0 },
+      unicorn: { x: -100, y: -70, z: 0 }
     },
     {//5 snow2
-      bird: { x: -800, y: 0, z: 0 },
-      unicorn: { x: 150, y: 40, z: 0 }
+      bird: { x: -800, y:-100, z: 300 },
+      unicorn: { x: 0, y: -70, z: -150 }
     },
     {//6 bday
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: 50, y: 40, z: 0 }
+      bird: { x: 800, y:-100, z: -50 },
+      unicorn: { x: -100, y: -70, z: -50 }
     },
     {//7 pink
-      bird: { x: -500, y: 0, z: 300 },
-      unicorn: { x: 100, y: 40, z: 300 }
+      bird: { x: -700, y: -60, z: 0 },
+      unicorn: { x: 100, y: -70, z:0 }
     },
     {//8 shanghai
-      bird: { x: 500, y: 0, z: 0 },
-      unicorn: { x: -100, y: 40, z: 0 }
+      bird: { x: 600, y:-100, z: 0 },
+      unicorn: { x: -150, y: -70, z: 0 }
     },
     {//9 fireworks 
-      bird: { x: 700, y: 0, z: -150 },
-      unicorn: { x: -200, y: 40, z: -150 }
+      bird: { x: 700, y:-100, z: -150 },
+      unicorn: { x: -200, y: -70, z: -150 }
     },
     {//10 6flag
-      bird: { x: 800, y: 0, z: 0 },
-      unicorn: { x: -80, y: 40, z: 0 }
+      bird: { x: 800, y:-100, z: 0 },
+      unicorn: { x: -80, y: -70, z: 0 }
     },
-    {//11
-      bird: { x: -700, y: 0, z: 0 },
-      unicorn: { x: 100, y: 40, z: 0 }
+    {//11 nathan
+      bird: { x: -700, y:-100, z: 0 },
+      unicorn: { x: 100, y: -70, z: 0 }
     },
     {//12
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -350, y: 40, z: 0 }
+      bird: { x: 700, y:-100, z: 0 },
+      unicorn: { x: -350, y: -70, z: 0 }
     },
     {//13
-      bird: { x: 700, y: 0, z: 50 },
-      unicorn: { x: -800, y: 40, z: 50 }
+      bird: { x: 700, y:-100, z: 50 },
+      unicorn: { x: -800, y: -70, z: 50 }
     }
   ],
 
@@ -357,28 +341,12 @@ export default {
     { x: 1512, y: 900, z: -1000 }, //5
     { x: 1280, y: 720, z: -700 }, //6
     { x: 1512, y: 802, z: -800 }, //7 
-    { x: 970, y: 800, z: -400 }, //8    
+    { x: 1280, y: 800, z: -800 }, //8    
     { x: 1280, y: 864, z: -700 }, //9
-    { x: 1024, y: 512, z: -700 }, //10
-    { x: 1280, y: 720, z: -500 }, //11
+    { x: 1280, y: 720, z: -700 }, //10
+    { x: 1280, y: 720, z: -700 }, //11
     { x: 1280, y: 720, z: -700 },//12
     { x: 1280, y: 720, z: -700 },//13
     { x: 1280, y: 720, z: -700 },//14
-  ],
-
-  bgRot:[
-    [Math.PI/4 , 0 , -Math.PI/4], //1
-    [Math.PI/4 , 0 , -Math.PI/4], //2
-    [Math.PI/4 , 0 , -Math.PI/4], //3
-    [Math.PI/4 , 0 , -Math.PI/4], //4
-    [Math.PI/4 , 0 , -Math.PI/4], //5
-    [Math.PI/4 , 0 , -Math.PI/4], //6
-    [Math.PI/4 , 0 , -Math.PI/4], //7
-    [Math.PI/4 , 0 , -Math.PI/4], //8
-    [Math.PI/4 , 0 , -Math.PI/4], //9
-    [Math.PI/4 , 0 , -Math.PI/4], //10
-    [Math.PI/4 , 0 , -Math.PI/4], //11
-    [Math.PI/4 , 0 , -Math.PI/4], //12
-    [Math.PI/4 , 0 , -Math.PI/4], //13
   ]
 };

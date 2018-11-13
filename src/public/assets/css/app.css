@@ -286,11 +286,11 @@ background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%, rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),url(https://media.giphy.com/media/Yy26NRbpB9lDi/giphy.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
 }
+
 
 .passwordHint{
   position: absolute;
@@ -431,3 +431,52 @@ body {
 .dg.ac{
   z-index: 3!important;
 }
+.season-end{
+  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%, rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),
+  url(https://thumbs.gfycat.com/LimpingFrenchLark-size_restricted.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  
+}
+.season-start{
+  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%, rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),
+  url(https://media.giphy.com/media/Yy26NRbpB9lDi/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.winter{
+  background: linear-gradient(to bottom, rgba(255, 250, 231, 0.4) 10%, rgba(241, 230, 180, 0.5) 30%, rgba(68, 28, 28, 0.5) 50%, rgba(97, 11, 11, 0.3) 70%, rgba(0, 0, 0, 0.3) 100%), 
+  url("../image/winter.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.spring{
+  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%, rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),
+  url("../image/spring.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.summer{
+  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%, rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),
+  url("../image/autumn.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.autumn{
+  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%,
+   rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),
+   url(https://media.giphy.com/media/lyVNcb1n5Ob0Q/giphy.gif);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 50% 50%;
+}
+

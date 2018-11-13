@@ -15,6 +15,7 @@ export default class domUI {
     this.textContainer= $("#bubble-text-wrapper");
     this.appContainer = $("#appContainer");
     this.bubblePos = $('#page-bubbles');
+    this.season = $('.snow');
     }
 
     showArrow(){
@@ -34,7 +35,33 @@ export default class domUI {
       this.bubblePos.css({top: Pos.x, left: Pos.y});
     }
 
+    updateBg(num){
+      console.log("updating bg");
+      console.log(num);
+      if (num === 2) {
+        this.season.removeClass('season-start').addClass('winter');
+      }
 
+      if (num === 5) {
+        this.season.removeClass('winter').addClass('spring');
+      }
 
+      if (num === 8){
+        this.season.removeClass('spring').addClass('summer');
+      }
+
+      if(num === 10){
+        this.season.removeClass('summer').addClass('autumn');
+      }
+
+      if(num === 12){
+        this.season.removeClass('autumn').addClass('season-end');
+  
+      }
+      else {
+        return;
+      }
+
+    }
 }
     

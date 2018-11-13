@@ -64,6 +64,7 @@ export default class PageUpdate {
       updateScene(){
          this.resetGoals();
          this.updateBg(); 
+         this.updateCSSBg(); 
          this.updateModelPos();
          this.updateSpotPos();
          this.updateDate();
@@ -72,6 +73,10 @@ export default class PageUpdate {
 
       updateBg(){
         this.background.updateBg(this.currentScene);
+      }
+
+      updateCSSBg(){
+        this.domUI.updateBg(this.currentScene);
       }
 
     

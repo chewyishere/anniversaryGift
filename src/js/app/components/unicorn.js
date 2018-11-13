@@ -317,7 +317,6 @@ export default class Unicorn {
     }
 
     lookAway(fastMove){
-        console.log("lookaway")
         var speed = fastMove? .8: 2;
         var ease = fastMove? Strong.easeOut : Strong.easeInOut;
         var delay = fastMove? .2 : 0;
@@ -344,12 +343,10 @@ export default class Unicorn {
 
 
     reset() {
-        console.log("unicorn reset");
         this.lookAway(false);
     }
 
     forceStop() {
-        console.log("unicorn force shutup");
         this.tl.kill();
         let sp = 0.4;
         TweenMax.to(this.mouth.rotation, sp, { x: 0.2, ease: Power4.easeOut });

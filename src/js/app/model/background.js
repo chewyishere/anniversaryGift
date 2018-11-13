@@ -12,7 +12,7 @@ export default class Background {
   }
 
   init(tex){
-    this.allBackgrounds.position.set(this.screenWidth,0,0);
+    this.allBackgrounds.position.set(this.screenWidth,-100,0);
     this.scene.add(this.allBackgrounds);
     for(var i=0; i < Config.bgPresets.length; i++){
       this.prepareBg(i, tex[i*5+1], tex[i*5+2], tex[i*5+3],tex[i*5+4], tex[i*5+5]);
@@ -55,7 +55,7 @@ export default class Background {
     var bg2 = new THREE.Mesh(bgGemo, mat2);
     bg2.material.needsUpdate = true;
     bg2.material.map = tex2;
-    bg2.position.z = 0 - z/3;
+    bg2.position.z = 0 - z/4;
     bg2.rotation.x = Math.PI/2;
     bg2.name = "bg2";
 
