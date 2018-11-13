@@ -19,6 +19,7 @@ export default class Texture {
     const loader = new THREE.TextureLoader();
     const maxAnisotropy = Config.maxAnisotropy;
     const imageFiles = Config.texture.imageFiles;
+    const bgFiles = Config.texture.bgFiles;
     const promiseArray = [];
 
     loader.setPath(Config.texture.path);

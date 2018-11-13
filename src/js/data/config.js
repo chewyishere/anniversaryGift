@@ -81,8 +81,25 @@ export default {
       { name: '63', image: '13-3.png' },
       { name: '64', image: '13-4.jpg' },
       { name: '65', image: '13-5.jpg' }
+    ],
+    bgFiles: [
+      { name: '1', image: 'full-house.jpg' }, //snow
+      { name: '2', image: 'full-shanghai.jpg' }, //360 house
     ]
   },
+
+  backgroundImage: [
+    {
+      color: 'linear-gradient(to bottom, rgba(117, 114, 113, 0.8) 10%, rgba(40, 49, 77, 0.8) 30%, rgba(29, 35, 71, 0.8) 50%, rgba(19, 25, 28, 0.8) 80%, rgba(15, 14, 14, .8) 100%)',
+      image: 'https://media.giphy.com/media/UdTLLJIrxZcY0/giphy.gif'
+    },
+    {
+      color: 'linear-gradient(to bottom, rgba(117, 114, 113, 0.8) 10%, rgba(40, 49, 77, 0.8) 30%, rgba(29, 35, 71, 0.8) 50%, rgba(19, 25, 28, 0.8) 80%, rgba(15, 14, 14, .8) 100%)',
+      image: 'https://38.media.tumblr.com/tumblr_m00c3czJkM1qbukryo1_500.gif'
+    }
+  ],
+
+
   mesh: {
     enableHelper: false,
     wireframe: false,
@@ -200,25 +217,11 @@ export default {
     y: 0,
     z: 0
   },
-
-  birdRot: {
-    x: 0,
-    y: 0,
-    z: 0
-  },
-
   unicornPos: {
     x: 0,
     y: 0,
     z: 0
   },
-
-  unicornRot: {
-    x: 0,
-    y: 0,
-    z: 0
-  },
-
     //Spot pos
     spotPos: [
       { x: -60, y: 20, z: 0 }, //0 
@@ -226,13 +229,13 @@ export default {
       { x: 0, y: 20, z: 0 }, //2 train
       { x: 200, y: 20, z: -150 }, //3 trampolian
       { x: 100, y: 20, z: 0 }, //4 snow
-      { x: 50, y: 20, z: 0 }, //5 snow2
+      { x: 0, y: 20, z: 0 }, //5 snow2
       { x: 200, y: 20, z: 0 }, //6 green
-      { x: 50, y: 20, z: 300 }, 
+      { x: 0, y: 20, z: 300 }, //pink
       { x: 50, y: 20, z: 0 }, //8 shanghai
       { x: 200, y: 20, z: -150  }, //9 
       { x: 80, y: 20, z: 0 }, //10 
-      { x: 50, y:20, z: 0 }, //11
+      { x: 0, y:20, z: 0 }, //11
       { x: -200, y: 20, z: 0 }, //12
       { x: 50, y: 120, z: 0 }, //13
     ],
@@ -249,8 +252,8 @@ export default {
       unicorn: { x: -175, y: 40, z: 0 }
     },
     {//2 train
-      bird: { x: 800, y: 0, z: 0 },
-      unicorn: { x: -100, y: 40, z: 0 }
+      bird: { x: -700, y: 0, z: 0 },
+      unicorn: { x: 100, y: 40, z: 0 }
     },
     {//3 bklynzoo
       bird: { x: 700, y: 0, z: -150 },
@@ -261,16 +264,16 @@ export default {
       unicorn: { x: -100, y: 40, z: 0 }
     },
     {//5 snow2
-      bird: { x: 500, y: 0, z: 0 },
-      unicorn: { x: -100, y: 40, z: 0 }
+      bird: { x: -800, y: 0, z: 0 },
+      unicorn: { x: 150, y: 40, z: 0 }
     },
     {//6 bday
       bird: { x: 700, y: 0, z: 0 },
       unicorn: { x: 50, y: 40, z: 0 }
     },
     {//7 pink
-      bird: { x: 700, y: 0, z: 300 },
-      unicorn: { x: -100, y: 40, z: 300 }
+      bird: { x: -500, y: 0, z: 300 },
+      unicorn: { x: 100, y: 40, z: 300 }
     },
     {//8 shanghai
       bird: { x: 500, y: 0, z: 0 },
@@ -281,12 +284,12 @@ export default {
       unicorn: { x: -200, y: 40, z: -150 }
     },
     {//10 6flag
-      bird: { x: 500, y: 0, z: 0 },
+      bird: { x: 800, y: 0, z: 0 },
       unicorn: { x: -80, y: 40, z: 0 }
     },
     {//11
-      bird: { x: 700, y: 0, z: 0 },
-      unicorn: { x: -100, y: 40, z: 0 }
+      bird: { x: -700, y: 0, z: 0 },
+      unicorn: { x: 100, y: 40, z: 0 }
     },
     {//12
       bird: { x: 700, y: 0, z: 0 },
@@ -295,65 +298,6 @@ export default {
     {//13
       bird: { x: 700, y: 0, z: 50 },
       unicorn: { x: -800, y: 40, z: 50 }
-    }
-  ],
-  // Model Rotation for 12 Scenes
-  modelRos: [
-    {//0
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//1
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: -1, z: 0 }
-    },
-    {//2
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//3
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//4
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//5
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//6
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//7
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//8
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//9
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//10
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//11
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//12
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
-    },
-    {//13
-      bird: { x: 0, y: 0, z: 0 },
-      unicorn: { x: 0, y: 0, z: 0 }
     }
   ],
 
@@ -376,17 +320,22 @@ export default {
 
   chat: [
     [
-        "Oh Hey! It's You!", 
-        "I know you",
-        "I remember you from the first day we met",
-        "you stand out from the crowd with your brightening energy",
-        "and you gave me the warmist hug.",
-        "Your eyes were full of excitments",
-        "your charming smile brighten up my heart",
-        "and I remember even more", 
-        "click the arrow and come join me!"
+        "Oh Hey!", 
+        "here you are!",
+        "it's been a year already?",
+        "feel like it's been forever",
+        "thanks for sticking around!",
+        "thanks for care me and love me",
+        "your energy always brighten up my heart",
+        "I remember so much", 
+        "click the arrow so I can show you!"
     ],
-    ["2-1", "2-2", "2-3"],
+    [
+      "you stood out from the crowd with your brightest smile",
+      "you gave me the warmist hug",
+      "I remember looking into your eyes",
+      "full of excitments!"
+    ],
     ["3-1", "3-2", "3-3"],
     ["4-1", "4-2", "4-3"],
     ["5-1", "5-2", "5-3"],
@@ -404,8 +353,8 @@ export default {
     { x: 1024, y: 512, z: -700 }, //1
     { x: 1200, y: 802, z: -700 }, //2
     { x: 970, y: 582, z: -700 }, //3
-    { x: 1024, y: 512, z: -500 }, //4
-    { x: 1512, y: 900, z: -800 }, //5
+    { x: 1024, y: 512, z: -700 }, //4
+    { x: 1512, y: 900, z: -1000 }, //5
     { x: 1280, y: 720, z: -700 }, //6
     { x: 1512, y: 802, z: -800 }, //7 
     { x: 970, y: 800, z: -400 }, //8    
