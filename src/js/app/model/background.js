@@ -8,6 +8,7 @@ export default class Background {
     this.allBackgrounds = new THREE.Group();
     this.currentBg = 0;
     this.screenWidth = window.innerWidth * 2.5;
+    this.currentScene = 0;
   
   }
 
@@ -88,15 +89,12 @@ export default class Background {
     bgSet.add(floor);
     bgSet.Id = idx;
 
-    console.log(bgSet.Id);
-
     this.allBackgrounds.add(bgSet);
 
   }
 
-  updateBg(idx){
-    console.log(idx);
-    let isNext = (idx >= this.currentBg) ? true : false;
+  updateBg(){
+    let isNext = (this.currentScene >= this.currentBg) ? true : false;
     let speed = 0.8;
     let dis = this.screenWidth.toString();
     let moveX = isNext? ( "-=" + dis)  : ( "+=" + dis);
@@ -109,10 +107,10 @@ export default class Background {
 
        if(el.Id === this.currentBg ){
           lastSet = el;
-          console.log(lastSet);
+
        }
 
-       if(el.Id === idx){
+       if(el.Id === this.currentScene){
           thisSet = el;
           bg1 = thisSet.getObjectByName('bg1');
           bg2 = thisSet.getObjectByName('bg2');
@@ -131,7 +129,7 @@ export default class Background {
       TweenMax.to(lastSet.getObjectByName('bg3').rotation, speed, {x:Math.PI/2.2, ease:Back.easeOut});
     }
 
-    this.currentBg = idx; 
+    this.currentBg = this.currentScene; 
 
   }
   

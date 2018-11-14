@@ -54,15 +54,15 @@ export default class Interaction {
         this.domUI.loginField.fadeOut(300);
         this.domUI.appContainer.removeClass("fadeOut");
         this.pageupdate.initScene();
-        this.domUI.showArrow();
       }
       
       if (this.keyboard.eventMatches(event, "2")) {
         this.domUI.firstpage.fadeOut(300);
         this.pageupdate.startScene();
+        this.domUI.showArrow();
       }
-      if (this.keyboard.eventMatches(event, "0")) {
-        this.domUI.showDebug();
+      if (this.keyboard.eventMatches(event, "s")) {
+        this.bird.jump();
       }
   
     });                            
@@ -70,7 +70,6 @@ export default class Interaction {
 
  
   move(){
-
       if(this.keyboard.pressed('d')) {
         this.bird.moveRight();
       };
@@ -93,7 +92,6 @@ export default class Interaction {
   }
 
   onMouseInit(event){
-    console.log("init game");
     this.domUI.loginField.fadeOut(300);
     this.domUI.appContainer.removeClass("fadeOut");
     this.pageupdate.initScene();
@@ -103,7 +101,6 @@ export default class Interaction {
     if (event.touches.length > 1) {
       event.preventDefault();
       this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
-      console.log("next");
       this.pageupdate.initScene();
     }
   }
@@ -120,7 +117,6 @@ export default class Interaction {
 }
   
   onMouseNext(event) {
-    console.log(this.pageupdate.ready);
     if(!this.pageupdate.ready){
       this.domUI.firstpage.fadeOut(300);
       this.pageupdate.startScene();
@@ -160,7 +156,6 @@ export default class Interaction {
     if (event.touches.length > 1) {
       event.preventDefault();
       this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
-      console.log("next");
       this.pageupdate.nextScene();
     }
   }

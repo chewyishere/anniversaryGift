@@ -16,6 +16,7 @@ export default class domUI {
     this.appContainer = $("#appContainer");
     this.bubblePos = $('#page-bubbles');
     this.season = $('.snow');
+    this.currentScene = 0;
     }
 
     showArrow(){
@@ -23,43 +24,39 @@ export default class domUI {
       this.back.removeClass("hidden");
     }
 
-    showDebug(){
-      this.appContainer.toggleClass("front");
+    showCal(){
+      this.appContainer.removeClass("front");
+    }
+
+    updateCal(){
+      this.year[0].innerHTML = Config.date[this.currentScene].year;
+      this.month[0].innerHTML = Config.date[this.currentScene].month;
     }
 
     removeFirstPage(){
       this.firstpage.fadeOut(400).delay(200).remove();
     }
 
-    updateBubblePos(Pos){
-      this.bubblePos.css({top: Pos.x, left: Pos.y});
-    }
-
-    updateBg(num){
-      console.log("updating bg");
-      console.log(num);
-      if (num === 2) {
+    updateBg(){
+      console.log("update bg" + this.currentScene);
+      switch (this.currentScene) {
+        case (2):
         this.season.removeClass('season-start').addClass('winter');
-      }
-
-      if (num === 5) {
+            break;
+        case (5):
         this.season.removeClass('winter').addClass('spring');
-      }
-
-      if (num === 8){
+            break;
+        case (8):
         this.season.removeClass('spring').addClass('summer');
-      }
-
-      if(num === 10){
+            break;
+        case (10):
         this.season.removeClass('summer').addClass('autumn');
-      }
-
-      if(num === 12){
+            break;
+        case (12):
         this.season.removeClass('autumn').addClass('season-end');
-  
-      }
-      else {
-        return;
+            break;
+        default: 
+          return;
       }
 
     }

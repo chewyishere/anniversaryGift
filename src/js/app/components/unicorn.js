@@ -1,8 +1,6 @@
 import * as THREE from 'three';
 
 import Material from '../helpers/material';
-import Geometry from '../helpers/geometry';
-import Helpers from '../../utils/helpers';
 import Config from '../../data/config';
 import { TweenMax, TimelineLite } from "gsap/TweenMax";
 
@@ -12,6 +10,7 @@ export default class Unicorn {
         this.scene = scene;
         this.bubbles = bubbles;
         this.tl = new TimelineLite();
+        this.currentScene = 0;
     }
 
     create() {
@@ -228,7 +227,6 @@ export default class Unicorn {
         var sp = 2;
         var _this = this;
         var ease = Power4.easeOut;
-        let headAngle = Math.PI / 4;
 
         TweenMax.to(this.shyAngles, sp, { h: -Math.PI / 8, ease: ease });
         TweenMax.to(this.shyAngles, sp, { v: -Math.PI / 8, ease: ease });
@@ -259,7 +257,7 @@ export default class Unicorn {
 
     look(hAngle, vAngle) {
         
-        let headAngle = ((this.status == "chilling") ? 1 : Math.PI / 4);
+        let chillAngle = ((this.status === "chilling") ? -Math.PI / 2 : Math.PI / 4);
 
         this.hAngle = hAngle;
         this.vAngle = vAngle;
@@ -270,9 +268,8 @@ export default class Unicorn {
         this.irisR.position.x = -this.vAngle * 2;
         this.irisR.position.z = this.hAngle * 2;
 
-
         this.head.rotation.y = this.hAngle;
-        this.head.rotation.x = -headAngle * 0.2 + this.vAngle * 0.5;
+        this.head.rotation.x = -chillAngle * 0.2 + this.vAngle * 0.5;
 
         this.torsobody.rotation.y = this.vAngle * 0.5;
         this.body.rotation.y = this.hAngle * 0.5;
@@ -282,23 +279,46 @@ export default class Unicorn {
     }
 
     chill() {
-        this.status == "chilling";
-
-        var sp = 1.2;
+        this.status = "chilling";
+        var sp = 1;
         var ease = Power4.easeOut;
 
-        TweenMax.to(this.torso.rotation, sp, { x: -1.3, ease: ease });
-        TweenMax.to(this.torso.position, sp, { y: -5, ease: ease });
+        TweenMax.to(this.torso.rotation, sp, { x: -1, ease: ease });
+        TweenMax.to(this.torso.position, sp, { y: -1, ease: ease });
 
-        TweenMax.to(this.head.rotation, sp, { x: Math.PI / 3, y: -Math.PI / 3, ease: ease });
         TweenMax.to(this.tail.rotation, sp, { x: 2, y: Math.PI / 4, ease: ease });
         TweenMax.to(this.pawBL.rotation, sp, { x: -.1, ease: ease });
         TweenMax.to(this.pawBR.rotation, sp, { x: -.1, ease: ease });
         TweenMax.to(this.pawFL.rotation, sp, { x: 1, ease: ease });
         TweenMax.to(this.pawFR.rotation, sp, { x: 1, ease: ease });
         TweenMax.to(this.mouth.rotation, sp, { x: .3, ease: ease });
+        TweenMax.to(this.eyeL.scale, sp, { y: 0.5, ease: ease });
+        TweenMax.to(this.eyeR.scale, sp, { y: 0.5, ease: ease });
+        
+    }
+
+   reverseChill(){
+        if(this.status === "chilling"){
+        var sp = 1;
+        var ease = Power4.easeOut;
+
+        TweenMax.to(this.torso.rotation, sp, { x: 0, ease: ease });
+        TweenMax.to(this.torso.position, sp, { y: 0, ease: ease });
+
+        TweenMax.to(this.tail.rotation, sp, { x: 0, y: Math.PI / 4, ease: ease });
+        TweenMax.to(this.pawBL.rotation, sp, { x: 0, ease: ease });
+        TweenMax.to(this.pawBR.rotation, sp, { x: 0, ease: ease });
+        TweenMax.to(this.pawFL.rotation, sp, { x: 0, ease: ease });
+        TweenMax.to(this.pawFR.rotation, sp, { x: 0, ease: ease });
+        TweenMax.to(this.mouth.rotation, sp, { x: 0, ease: ease });
         TweenMax.to(this.eyeL.scale, sp, { y: 1, ease: ease });
         TweenMax.to(this.eyeR.scale, sp, { y: 1, ease: ease });
+        this.status = "standing";
+
+    } else {
+        return;
+    }
+    
     }
 
     blink() {
@@ -313,7 +333,6 @@ export default class Unicorn {
         TweenMax.to(this.irisL.scale, sp / 4, { x: 1, ease: Power4.easeIn, delay: sp / 4 });
         TweenMax.to(this.irisL.scale, sp / 4, { x: 0.1, ease: Power4.easeOut, delay: sp / 2 });
         TweenMax.to(this.irisL.scale, sp / 4, { x: 1, ease: Power4.easeIn, delay: sp });
-
     }
 
     lookAway(fastMove){
@@ -343,7 +362,21 @@ export default class Unicorn {
 
 
     reset() {
-        this.lookAway(false);
+        switch (this.currentScene) {
+        case (2):
+            this.lookAway(true);
+            break;
+        case (3):
+            this.lookAway(false);
+            this.reverseChill();
+            break;
+        case (5):
+            this.reverseChill();
+            break;
+        default:
+            this.lookAway(false);
+            break;
+        }
     }
 
     forceStop() {
@@ -352,14 +385,20 @@ export default class Unicorn {
         TweenMax.to(this.mouth.rotation, sp, { x: 0.2, ease: Power4.easeOut });
     }
 
-    playAnimation(num) {
+    playAnimation() {
         this.talk();
-        this.lookAway(true);
-        switch (num) {
+        switch (this.currentScene) {
             case (0):
-                
+               this.lookAway(true);
                 break;
             case (1):
+                this.lookAway(true);
+                break;
+            case (2):
+                this.lookAway(false);
+                break;
+            case (4):
+                this.chill();
                 break;
         }
 

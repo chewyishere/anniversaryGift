@@ -1,8 +1,6 @@
 import * as THREE from 'three';
 
 import Material from '../helpers/material';
-import Geometry from '../helpers/geometry';
-import Helpers from '../../utils/helpers';
 import Config from '../../data/config';
 import TweenMax from "gsap/TweenMax";
 
@@ -11,6 +9,8 @@ export default class Bird {
     constructor(scene) {
         this.scene = scene;
         this.mesh = null;
+        this.currentScene = 0;
+        this.keepJumping;
     }
 
     create() {
@@ -202,7 +202,6 @@ export default class Bird {
     }
 
     init(){
-        console.log("bird init!");
         var sp = 1.2;
         var ease = Power4.easeOut;
         TweenMax.to(this.mesh.scale, sp, { x: 1, ease: ease });
@@ -264,7 +263,6 @@ export default class Bird {
       moveRight(){
 
             let speed = 0.8;
-            let jumpHeight = 20;
             let t = speed * this.delta;
             let amp = 10;
 
@@ -288,7 +286,6 @@ export default class Bird {
 
     moveLeft(){
             let speed = 0.8;
-            let jumpHeight = 20;
             let t = speed * this.delta;
             let amp = 10;
 
@@ -310,13 +307,12 @@ export default class Bird {
     }
 
       jump(){
-        if (this.status == "jumping") return;
+        if (this.status == "jumping" && this.currentScene !== 3 ) return;
         this.status = "jumping";
-
         let _this = this;
         let totalSpeed = 1;
         let jumpHeight = 70;
-        
+
         TweenMax.to(this.LeftLegGroup.rotation, totalSpeed/2, {x:"+=.5", ease:Back.easeOut});
         TweenMax.to(this.LeftLegGroup.rotation, totalSpeed/2, {x:"-=.5", ease:Power4.easeIn, delay:totalSpeed/2});
         
@@ -333,10 +329,42 @@ export default class Bird {
         TweenMax.to(this.wingRightGroup.rotation, totalSpeed/2, {y:"+=1", ease:Power4.easeIn, delay:totalSpeed/1.5});
         
         TweenMax.to(this.mesh.position, totalSpeed/2, {y:jumpHeight, ease:Power2.easeOut});
-        TweenMax.to(this.mesh.position, totalSpeed/2, {y:0, ease:Power4.easeIn, delay:totalSpeed/2, onComplete: function(){
-            //t = 0;
+        TweenMax.to(this.mesh.position, totalSpeed/2, {y:-100, ease:Power4.easeIn, delay:totalSpeed/2, onComplete: function(){
             _this.status="standing";
         }});
+    }
+
+
+    lookAway(fastMove){
+      var speed = fastMove? .8: 2;
+      var ease = fastMove? Strong.easeOut : Strong.easeInOut;
+      var delay = fastMove? .2 : 0;
+      var col = fastMove? this.shySkin : this.normalSkin;
+      var tv = (-1 + Math.random()*2) * Math.PI/3;
+      var beakScaleX = .75 + Math.random()*.25;
+      var beakScaleZ = .5 + Math.random()*.5;
+      
+      if (this.side == "right"){
+        var th = (-1 + Math.random()) * Math.PI/4;  
+      }else{
+        var th = Math.random() * Math.PI/4; 
+      }  
+
+      TweenMax.killTweensOf(this.shyAngles);
+      TweenMax.to(this.shyAngles, speed, {v:tv, h:th, ease:ease, delay:delay});
+      TweenMax.to (this.color, speed, {r:col.r, g:col.g, b:col.b, ease:ease, delay:delay});
+      TweenMax.to(this.beak.scale, speed, {z:beakScaleZ, x:beakScaleX, ease:ease, delay:delay});
+      TweenMax.to(this.mesh.rotation, speed*2, {y: Math.PI/10, ease:ease, delay:delay});
+      
+    }
+
+    takePhoto(){
+      var _this = this;
+      let sp = 1;  
+      var ease = Strong.easeOut;  
+      TweenMax.to(this.mesh.rotation, sp, {y: Math.PI, ease:ease});
+      TweenMax.killTweensOf(this.shyAngles);
+      TweenMax.to(this.shyAngles, sp, {v:0, h:0, ease:ease});
     }
 
     blink(){
@@ -355,42 +383,53 @@ export default class Bird {
   
     }
 
-    lookAway(fastMove){
-        var speed = fastMove? .8: 2;
-        var ease = fastMove? Strong.easeOut : Strong.easeInOut;
-        var delay = fastMove? .2 : 0;
-        var col = fastMove? this.shySkin : this.normalSkin;
-        var tv = (-1 + Math.random()*2) * Math.PI/3;
-        var beakScaleX = .75 + Math.random()*.25;
-        var beakScaleZ = .5 + Math.random()*.5;
-        
-        if (this.side == "right"){
-          var th = (-1 + Math.random()) * Math.PI/4;  
-        }else{
-          var th = Math.random() * Math.PI/4; 
-        }  
-
-        TweenMax.killTweensOf(this.shyAngles);
-        TweenMax.to(this.shyAngles, speed, {v:tv, h:th, ease:ease, delay:delay});
-        TweenMax.to (this.color, speed, {r:col.r, g:col.g, b:col.b, ease:ease, delay:delay});
-        TweenMax.to(this.beak.scale, speed, {z:beakScaleZ, x:beakScaleX, ease:ease, delay:delay});
-        TweenMax.to(this.mesh.rotation, speed*2, {y: Math.PI/10, ease:ease, delay:delay});
-        
-      }
-
-      playAnimation(num){
-        this.lookAway(true);
-          if(num == 0){
-                
-          }
-          if(num == 1){
-            this.jump();
-          }
+      playAnimation(){
+        var _this = this;
+        switch (this.currentScene) {
+          case (0):
+             this.lookAway(true);
+              break;
+          case (1):
+             this.lookAway(true);
+              break;
+          case (2):
+             this.lookAway(false);
+              break;
+          case (3):
+              this.lookAway(false);     
+              this.keepJumping = setInterval(this.jump.bind(_this), 1200);
+              break;
+          case (5):
+              this.takePhoto();
+              break;
+          case (12):
+              this.keepJumping = setInterval(this.jump.bind(_this), 1200);
+              break;
+              
+        }
 
       }
 
       reset(){
-        this.lookAway(false);
+        switch (this.currentScene) {
+          case (2):
+              this.lookAway(true);
+              clearInterval(this.keepJumping);
+              break;
+          case (4):
+              clearInterval(this.keepJumping);
+              break;
+          case (11):
+              clearInterval(this.keepJumping);
+              break;
+          case (13):
+              clearInterval(this.keepJumping);
+              break;
+          default:
+              this.lookAway(false);
+              break;    
+        }
+
       }
 
 }

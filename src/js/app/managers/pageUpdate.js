@@ -40,6 +40,7 @@ export default class PageUpdate {
       this.spotInterval = setInterval(this.spot.jump.bind(this.spot), 2000);
       this.birdBlinkInterval = setInterval(this.bird.blink.bind(this.bird), 3000);
       this.domUI.removeFirstPage();
+      this.domUI.showCal();
       this.ready = true;
     }
 
@@ -62,21 +63,30 @@ export default class PageUpdate {
       }
 
       updateScene(){
+         this.assignScenes();
          this.resetGoals();
          this.updateBg(); 
          this.updateCSSBg(); 
          this.updateModelPos();
          this.updateSpotPos();
          this.updateDate();
-         this.updateDialogBubble();
+      }
+
+      assignScenes(){
+        this.bird.currentScene = this.currentScene;
+        this.unicorn.currentScene = this.currentScene;
+        this.background.currentScene = this.currentScene;
+        this.domUI.currentScene = this.currentScene;
+        this.bubbles.currentScene = this.currentScene;
+
       }
 
       updateBg(){
-        this.background.updateBg(this.currentScene);
+        this.background.updateBg();
       }
 
       updateCSSBg(){
-        this.domUI.updateBg(this.currentScene);
+        this.domUI.updateBg();
       }
 
     
@@ -102,13 +112,7 @@ export default class PageUpdate {
       }
 
       updateDate(){
-        this.domUI.year.innerHTML = Config.date[this.currentScene].year;
-        this.domUI.month.innerHTML = Config.date[this.currentScene].month;
-
-      }
-
-      updateDialogBubble(){
-          this.bubbles.textLines = Config.chat[this.currentScene+1];
+        this.domUI.updateCal();
       }
 
       resetGoals(){
@@ -120,12 +124,12 @@ export default class PageUpdate {
 
 
       detectDistance(){
-        let dist = Math.abs(this.bird.mesh.position.x - this.spot.spot.position.x);
-
-        if(dist < 20){
+        let distX = Math.abs(this.bird.mesh.position.x - this.spot.spot.position.x);
+        let distY = Math.abs(this.bird.mesh.position.y - this.spot.spot.position.y);
+        if(distX < 20 && distY <= 100){
           this.meetTarget = true;
-          this.bird.playAnimation(this.currentScene);
-          this.unicorn.playAnimation(this.currentScene);
+          this.bird.playAnimation();
+          this.unicorn.playAnimation();
         }
       }
 

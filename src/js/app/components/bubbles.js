@@ -12,6 +12,7 @@ export default class Bubbles {
         this.textLines = Config.chat[0];
         this.hasfirstPage = false;
         this.onPage = 0;
+        this.currentScene = 0;
 
         this.bubbleAnime = anime.timeline({
             autoplay: false,
@@ -22,6 +23,7 @@ export default class Bubbles {
             },
             complete: () => {
                 this.animStarted = false;
+                console.log(this.animStarted);
                 this.addText();
             }
         });
@@ -42,7 +44,7 @@ export default class Bubbles {
             })
             .add({
                 targets: '#bubble',
-                width: [0, 400],
+                width: [0, 430],
                 duration: 1000,
                 offset: 1
             })
@@ -55,9 +57,8 @@ export default class Bubbles {
     }
 
     showText() {
-     if(!this.animeStarted){
-            console.log("start talking");
-            this.bubbleAnime.restart();
+     if(!this.animStarted){
+         this.bubbleAnime.restart();
         }
     };
 
@@ -69,9 +70,8 @@ export default class Bubbles {
     }
 
     forceStop(){
-
-     if(this.bubbleAnime.currentTime == 0){
-        this.animeStarted = true;
+     if(this.bubbleAnime.currentTime === 0){
+        this.animStarted = true;
         }else{
             this.bubbleComplete();
         }
@@ -79,27 +79,29 @@ export default class Bubbles {
     }
 
     reset(){
-        this.animeStarted = false;
+        if(this.currentScene !== 0){
+            this.animStarted = false;
+        }
         this.dialogCompleted = true;
         this.hasfirstPage = false;
         this.onPage = 0;
-
+        this.textContainer.empty();
     }
 
     addText() {
-        console.log("add text");
         this.textContainer.empty();
         this.textContainer.fadeIn(400);
+        this.textLines = Config.chat[this.currentScene+1];
 
-        this.hasfirstPage = (this.textLines.length > 5 && this.onPage == 0) ? true : false;
+        this.hasfirstPage = (this.textLines.length > 6 && this.onPage == 0) ? true : false;
         var lines;
 
         if(this.onPage == 0){
-            lines = this.textLines.slice((0),(5));
+            lines = this.textLines.slice((0),(6));
 
         }
         if (this.onPage == 1){
-            lines = this.textLines.slice((5),(9));
+            lines = this.textLines.slice((6),(11));
         }
             
 
@@ -115,8 +117,8 @@ export default class Bubbles {
                 if(this.hasfirstPage && !this.dialogCompleted){
                     this.onPage = 1;
                     this.hasfirstPage = false;
-                    _this.textContainer.delay(400).fadeOut(400);
-                    setTimeout(this.addText.bind(_this),1000);
+                    _this.textContainer.delay(1000).fadeOut(400);
+                    setTimeout(this.addText.bind(_this),1500);
 
                 } else {
                     this.domUI.showArrow();
@@ -130,10 +132,10 @@ export default class Bubbles {
        this.textAnime.add({
            targets: "#bubble-text-wrapper span",
            opacity: 1,
-           duration: 600,
+           duration: 800,
            easing: 'linear',
            delay: function (el, i, l) {
-               return i * 1000;
+               return i * 1500;
            }
        })
 

@@ -83,7 +83,7 @@ export default {
       { name: '65', image: '13-5.jpg' }
     ]
   },
-  
+
   mesh: {
     enableHelper: false,
     wireframe: false,
@@ -112,16 +112,16 @@ export default {
     enablePan: true,
     autoRotate: false,
     autoRotateSpeed: -0.5,
-    rotateSpeed: 0.5,
-    zoomSpeed: 0.8,
-    minDistance: 300,
-    maxDistance: 1500,
+    rotateSpeed: 1,
+    zoomSpeed: 1.3,
+    minDistance: 400,
+    maxDistance: 2000,
     minPolarAngle: -Infinity, //Math.PI / 5,
     maxPolarAngle: Infinity, //Math.PI / 2,
     minAzimuthAngle: -Infinity,
     maxAzimuthAngle: Infinity,
     enableDamping: true,
-    dampingFactor: 0.5,
+    dampingFactor: 0.7,
     enableZoom: true,
     target: {
       x: 0,
@@ -208,10 +208,10 @@ export default {
   },
     //Spot pos
     spotPos: [
-      { x: -60, y: 0, z: 0 }, //0 
+      { x: 0, y: 0, z: 0 }, //0 
       { x: 100, y: 0, z: 0 }, //1
-      { x: -50, y: 0, z: 0 }, //2 train
-      { x: 200, y: 0, z: -150 }, //3 trampolian
+      { x: -700, y: 0, z: 0 }, //2 train
+      { x: 200, y: 150, z: -150 }, //3 trampolian
       { x: 50, y: 0, z: 0 }, //4 snow need to fix
       { x: 0, y: 0, z: 300 }, //5 snow2
       { x: 100, y: 0, z: -50 }, //6 green
@@ -236,8 +236,8 @@ export default {
       unicorn: { x: -175, y: -70, z: 0 }
     },
     {//2 train
-      bird: { x: -700, y:-100, z: 0 },
-      unicorn: { x: 100, y: -70, z: 0 }
+      bird: { x: -50, y:-100, z: 0 },
+      unicorn: { x: 50, y: -70, z: 0 }
     },
     {//3 bklynzoo
       bird: { x: 700, y:-100, z: -150 },
@@ -248,11 +248,11 @@ export default {
       unicorn: { x: -100, y: -70, z: 0 }
     },
     {//5 snow2
-      bird: { x: -800, y:-100, z: 300 },
+      bird: { x: -600, y:-100, z: 300 },
       unicorn: { x: 0, y: -70, z: -150 }
     },
     {//6 bday
-      bird: { x: 800, y:-100, z: -50 },
+      bird: { x: 700, y:-100, z: -50 },
       unicorn: { x: -100, y: -70, z: -50 }
     },
     {//7 pink
@@ -287,6 +287,7 @@ export default {
 
   date: [
     { year: "2017", month: "NOV" },
+    { year: "2017", month: "NOV" },
     { year: "2017", month: "DEC" },
     { year: "2018", month: "JAN" },
     { year: "2018", month: "FEB" },
@@ -298,33 +299,65 @@ export default {
     { year: "2018", month: "AUG" },
     { year: "2018", month: "SEP" },
     { year: "2018", month: "OCT" },
-    { year: "2018", month: "AUG" },
-    { year: "2018", month: "NOV" }
+    { year: "2018", month: "NOV" },
+    { year: "2090", month: "" }
   ],
 
   chat: [
     [
         "Oh Hey!", 
-        "here you are!",
-        "it's been a year already?",
-        "feel like it's been forever",
-        "thanks for sticking around!",
-        "thanks for care me and love me",
-        "your energy always brighten up my heart",
-        "I remember so much", 
-        "click the arrow so I can show you!"
+        "Here you are!",
+        "Can you belive it's only been a year?",
+        "Feel like it's been forever.",
+        "Now I can't imagine living without you",
+        "Anyways, Thanks for sticking around!",
+
+        "Thanks for caring me and loving me,",
+        "Thanks for always making me laugh,",
+        "I feel lucky, and I'm very grateful!", 
+        "I know I'm forgetful, but I remember a lot of beautiful things,", 
+        "Click the arrow so I can show you!"
     ],
     [
-      "you stood out from the crowd with your brightest smile",
-      "you gave me the warmist hug",
-      "I remember looking into your eyes",
-      "full of excitments!"
+      "I remember where I saw you first time,",
+      "You stood out from the crowd with your brightest smile,",
+      "You gave me the biggiest hug,",
+      "Your eyes were sparkled with excitements!",
+      "What a blessing gift for the winter!",
     ],
-    ["3-1", "3-2", "3-3"],
-    ["4-1", "4-2", "4-3"],
-    ["5-1", "5-2", "5-3"],
-    ["6-1", "6-2", "6-3"],
-    ["7-1", "7-2", "7-3"],
+    [
+      "We spent the first 5 dates looking for the best hot chocolate,",
+      "You were allergic to 3/4 cups cuz I loved Almond milk.",
+      "(I hate it now)",
+      "You said you enjoy talking to me, so am I,",
+      "I felt so refreshing everytime hanging out with you.",
+    ],
+    [
+      "You did the sneaky thing and ran away like a rat king,",
+      "The rest of the cart were just awkwardly stared at me.",
+      "but it wasn't too bad",
+      "I honestly can't think any other ways you would kiss me...",
+      "so let's say it's the best one you could have done :)",
+    ],
+    [
+      "This is maybe de best thing I've done,",
+      "I'm so glad I brought you to the zoo",
+      "Watching you flipping is coolest thing.",
+      "You motivates me too, even tho my body is a grandma now.",
+      "You always so active, like your cute lil brain, can't stop moving!",
+    ],
+    [
+      "Life has never be the same after our first trip together,",
+      "I felt like a kid again, immersed in pure happiness and goofniess,",
+      "Chinese songs, snowboards, waterparks, hot tubs..",
+      "and finally, I recieved my first Totally-Not-Valentines-Day gift!",
+    ],
+    [
+      "There was a time when I hang out with no-face and big-bird almost everyday,",
+      "You were so supportive!",
+      "then you got sick, you were probably sick 3 out of the 4 weeks",
+      "I felt really bad, but somehow all that hard time we went through just brought us closer!",
+    ],
     ["8-1", "8-2", "8-3"],
     ["9-1", "9-2", "9-3"],
     ["10-1", "10-2", "10-3"],
