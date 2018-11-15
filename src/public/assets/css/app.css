@@ -74,10 +74,15 @@ body {
   z-index: 2;
  }
 
-#loading {
+#loader {
   position: absolute;
-  top: calc(50% - 8px);
-  left: calc(50% - 35px); }
+  top: calc(50% - 15px);
+  font-size: 30px;
+  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+  z-index: 1;
+  text-transform: uppercase;
+  color:whitesmoke;
+}
 
 #bubble-text-wrapper{
   color: hsl(335, 78%, 66%);
@@ -120,24 +125,24 @@ body {
 }
 
 .cal{
+  font-family: Trebuchet MS;
+  font-size: 30px;
   position: fixed;
   top: 20px;
   right: 20px;
   width: 100px;
   height: 100px;
   display: flex;
-  background: lightgrey;
+  background: antiquewhite;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 #cal-year{
-  font-size: 24px;
   color: #ff5600;
 }
 #cal-month{
-  font-size: 25px;
   color: black;
 }
 #nav-arrow-right,
@@ -300,7 +305,7 @@ background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-  top: 8%;
+  top: 4%;
   opacity: 1;
   transition:all .400s;
 }
@@ -389,6 +394,8 @@ body {
   display: flex;
   align-items: center;
   width: 300px;
+  opacity: 1;
+  transition: all .400s;
 }
 
 .inputArea-hint, .inputArea-start{
@@ -418,8 +425,44 @@ body {
   transition: all .300s;
 }
 
+
+#instruction{
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  z-index: 2;
+  width: 240px;
+  opacity: 1;
+  transition: all .300s;
+}
+
+#instruction p{
+  font-family: Trebuchet MS;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  height: 20px;
+  color: antiquewhite;
+}
+
+.instruction-keys{
+  color: aquamarine;
+  margin: 0 auto;
+}
+
+
+.instruction-spot {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../image/spot.png");
+}
+
+
 .fadeOut{
-  opacity: 0;
+  opacity: 0 !important;
   transition:all .400s;
   z-index: -1;
 }
@@ -479,4 +522,3 @@ body {
    background-size: cover;
    background-position: 50% 50%;
 }
-

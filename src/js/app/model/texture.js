@@ -13,13 +13,13 @@ export default class Texture {
   constructor() {
     // Prop that will contain all loaded textures
     this.textures = {};
+    this.loadingTime = 0;
   }
 
   load() {
     const loader = new THREE.TextureLoader();
     const maxAnisotropy = Config.maxAnisotropy;
     const imageFiles = Config.texture.imageFiles;
-    const bgFiles = Config.texture.bgFiles;
     const promiseArray = [];
 
     loader.setPath(Config.texture.path);
@@ -49,6 +49,7 @@ export default class Texture {
     return Promise.all(promiseArray).then(textures => {
       // Set the textures prop object to have name be the resolved texture
       for(let i = 0; i < textures.length; i++) {
+        this.loadingTime = i/textures.length;
         this.textures[Object.keys(textures[i])[0]] = textures[i][Object.keys(textures[i])[0]];
       }
     }, reason => console.log(reason));

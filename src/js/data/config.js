@@ -248,11 +248,11 @@ export default {
       unicorn: { x: -100, y: -70, z: 0 }
     },
     {//5 snow2
-      bird: { x: -600, y:-100, z: 300 },
+      bird: { x: -450, y:-100, z: 300 },
       unicorn: { x: 0, y: -70, z: -150 }
     },
     {//6 bday
-      bird: { x: 700, y:-100, z: -50 },
+      bird: { x: 400, y:-100, z: -50 },
       unicorn: { x: -100, y: -70, z: -50 }
     },
     {//7 pink
@@ -307,15 +307,15 @@ export default {
     [
         "Oh Hey!", 
         "Here you are!",
-        "Can you belive it's only been a year?",
-        "Feel like it's been forever.",
-        "Now I can't imagine living without you",
+        "Can you belive it's been a year already?",
+        "Acutally, can you believe it's only been a year?",
+        "Feels like been forever",
         "Anyways, Thanks for sticking around!",
 
         "Thanks for caring me and loving me,",
         "Thanks for always making me laugh,",
         "I feel lucky, and I'm very grateful!", 
-        "I know I'm forgetful, but I remember a lot of beautiful things,", 
+        "You know I'm forgetful, but I remember a lot of beautiful things,", 
         "Click the arrow so I can show you!"
     ],
     [
@@ -361,7 +361,7 @@ export default {
       "Here comes my favorite time of the year!",
       "You already know,",
       "I'm so happy you finally got to see all my crazy friends,",
-      "They are all of places, and sometimes weird af,",
+      "They are all of places, sometimes weird af,",
       "but arent we all?",
       "Pretty sure that's why I love you.",
     ],

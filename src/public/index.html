@@ -11,8 +11,23 @@
 <body>
   <section id="appContainer" class="main fadeOut front">
     <div class="snow season-start"></div>
-    <div id="loading">Loading...</div>
   </section>
+  <div id="instruction" class="fadeOut">
+    <p>
+      * press 
+      <span class="instruction-keys" style="margin-right:0;"> a </span>
+      <span class="instruction-keys"> s </span> 
+      <span class="instruction-keys" style="margin-left:0;"> d </span>
+      to move to the spot 
+      <span class="instruction-spot"></span> 
+    </p>
+    <p>
+      * drag to view different angle
+    </p>
+    <p>
+        * scroll to zoom in and out
+      </p>
+  </div>
   <div class="cal">
     <div id="cal-year">2017</div>
     <div id="cal-month">NOV</div>
@@ -37,13 +52,14 @@
   </div>
 
   <div id="firstpage" class="">
+    <div id="loader">Loading...</div>
     <div class="snow season-start"></div>
     <div id="particles-js"></div>
     <div class="passwordHint fadeOut"></div>
-    <div class="inputArea">
+    <div class="inputArea fadeOut">
       <input id="input-ps" type="text" placeholder="password" maxlength="8"/>
       <button id="btn-hint" class="inputArea-hint">hint</button>
-      <button id="btn-start" class="inputArea-start fadeOut">go</button>
+      <button id="btn-start" class="inputArea-start fadeOut">&#10084;</button>
     </div>
   </div>
 

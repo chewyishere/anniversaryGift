@@ -14,8 +14,10 @@ export default class domUI {
     this.bubbleText = $("#bubble-text");
     this.textContainer= $("#bubble-text-wrapper");
     this.appContainer = $("#appContainer");
+    this.loader = $("#loader");
     this.bubblePos = $('#page-bubbles');
     this.season = $('.snow');
+    this.instruction = $('#instruction');
     this.currentScene = 0;
     }
 
@@ -31,11 +33,17 @@ export default class domUI {
 
     showCal(){
       this.appContainer.removeClass("front");
+      this.instruction.removeClass("fadeOut");
     }
 
     updateCal(){
       this.year[0].innerHTML = Config.date[this.currentScene].year;
       this.month[0].innerHTML = Config.date[this.currentScene].month;
+    }
+
+    doneLoading(){
+      this.loader.delay(100).fadeOut(400);
+      this.loginField.delay(800).removeClass("fadeOut");
     }
 
     removeFirstPage(){

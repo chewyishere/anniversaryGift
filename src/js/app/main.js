@@ -19,8 +19,8 @@ import Background from './model/background'
 
 // Managers
 import Interaction from './managers/interaction';
-import DatGUI from './managers/datGUI';
 import PageUpdate from './managers/pageUpdate';
+import DomUI from './managers/domUI';
 
 // data
 import Config from './../data/config';
@@ -52,41 +52,21 @@ export default class Main {
      this.controls = new Controls(this.camera.threeCamera, container);
      this.light = new Light(this.scene);
 
-
     // Set up rStats if dev environment
     if (Config.isDev && Config.isShowingStats) {
       this.stats = new Stats(this.renderer);
       this.stats.setUp();
     }
+    this.domUI = new DomUI();
 
     // Instantiate texture class
     this.texture = new Texture();
 
     // Start loading the textures and then go on to load the model after the texture Promises have resolved
     this.texture.load().then(() => {
-      this.manager = new THREE.LoadingManager();
+      console.log("done loading!");
+      this.domUI.doneLoading();
 
-      // // onProgress callback
-      // this.manager.onProgress = (item, loaded, total) => {
-      //   console.log(`${item}: ${loaded} ${total}`);
-      //   console.log("loading!");
-      // };
-
-      // // All loaders done now
-      // this.manager.onLoad = () => {
-      //   console.log("done loading!");
-      // // Set up interaction manager with the app now that the model is finished loading
-
-      // Add dat.GUI controls if dev
-      // if (Config.isDev) {
-      //   new DatGUI(this);
-      // }
-
-      // Everything is now fully loaded
-      Config.isLoaded = true;
-      this.container.querySelector('#loading').style.display = 'none';
-
-   // }
     });
 
      this.bubbles = new Bubbles();
