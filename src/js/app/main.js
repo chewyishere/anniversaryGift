@@ -78,9 +78,9 @@ export default class Main {
       // // Set up interaction manager with the app now that the model is finished loading
 
       // Add dat.GUI controls if dev
-      if (Config.isDev) {
-        new DatGUI(this);
-      }
+      // if (Config.isDev) {
+      //   new DatGUI(this);
+      // }
 
       // Everything is now fully loaded
       Config.isLoaded = true;
@@ -100,7 +100,7 @@ export default class Main {
      this.pageupdate = new PageUpdate(this,this.texture.textures);
      this.interaction = new Interaction(this);
     
-      this.light.place('bird');
+    this.light.place('bird');
 
     this.render();
   }
@@ -119,13 +119,6 @@ export default class Main {
       Stats.end();
     }
 
-    // if(!this.pageupdate.meetTarget){
-    //   var tempHA = (this.interaction.mousePos.x - this.interaction.windowSize.width) / 200;
-    //   var tempVA = (this.interaction.mousePos.y - this.interaction.windowSize.height) / 200;
-    //   var userHAngle = Math.min(Math.max(tempHA, -Math.PI / 3), Math.PI / 3);
-    //   var userVAngle = Math.min(Math.max(tempVA, -Math.PI / 3), Math.PI / 3);
-    //   this.unicorn.loop(true, userHAngle, userVAngle);
-    // } else {
     this.unicorn.loop();
     this.bird.loop();
     this.spot.spin();

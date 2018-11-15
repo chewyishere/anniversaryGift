@@ -247,7 +247,6 @@ export default class Unicorn {
     }
 
     checkDialogComplete() {
-
         if (!this.bubbles.dialogCompleted) {
             this.tl.restart();
         } else {
@@ -297,7 +296,7 @@ export default class Unicorn {
         
     }
 
-   reverseChill(){
+   standUp(){
         if(this.status === "chilling"){
         var sp = 1;
         var ease = Power4.easeOut;
@@ -368,10 +367,10 @@ export default class Unicorn {
             break;
         case (3):
             this.lookAway(false);
-            this.reverseChill();
+            this.standUp();
             break;
         case (5):
-            this.reverseChill();
+            this.standUp();
             break;
         default:
             this.lookAway(false);

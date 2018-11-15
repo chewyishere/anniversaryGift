@@ -91,7 +91,7 @@ export default class Bubbles {
     addText() {
         this.textContainer.empty();
         this.textContainer.fadeIn(400);
-        this.textLines = Config.chat[this.currentScene+1];
+        this.textLines = Config.chat[this.currentScene];
 
         this.hasfirstPage = (this.textLines.length > 6 && this.onPage == 0) ? true : false;
         var lines;

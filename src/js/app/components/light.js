@@ -87,11 +87,9 @@ export default class Light {
         break;
       case 'bird':
        this.scene.add(this.directionalLight);
-      //  this.scene.add(this.directionalLightHelper);
         this.scene.add(this.ambientLight);
         this.scene.add(this.spotLight);
         this.scene.add(this.hemiLight);
-        this.scene.add(this.spotLightHelper);
       break;
 
     }

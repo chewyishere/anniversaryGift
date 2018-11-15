@@ -77,7 +77,7 @@ export default class PageUpdate {
         this.unicorn.currentScene = this.currentScene;
         this.background.currentScene = this.currentScene;
         this.domUI.currentScene = this.currentScene;
-        this.bubbles.currentScene = this.currentScene;
+        this.bubbles.currentScene = this.currentScene + 1;
 
       }
 
@@ -119,6 +119,7 @@ export default class PageUpdate {
            this.bubbles.reset();
            this.bird.reset();
            this.unicorn.reset();
+           //this.domUI.hideArrow();
            this.meetTarget = false;
       }
 
@@ -130,6 +131,7 @@ export default class PageUpdate {
           this.meetTarget = true;
           this.bird.playAnimation();
           this.unicorn.playAnimation();
+          //this.domUI.showArrow();
         }
       }
 

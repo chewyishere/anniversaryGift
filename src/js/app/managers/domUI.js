@@ -24,6 +24,11 @@ export default class domUI {
       this.back.removeClass("hidden");
     }
 
+    hideArrow(){
+      this.next.addClass("hidden");
+      this.back.addClass("hidden");
+    }
+
     showCal(){
       this.appContainer.removeClass("front");
     }
@@ -40,17 +45,32 @@ export default class domUI {
     updateBg(){
       console.log("update bg" + this.currentScene);
       switch (this.currentScene) {
+        case (1):
+        this.season.removeClass('winter').addClass('season-start');
+            break
         case (2):
         this.season.removeClass('season-start').addClass('winter');
             break;
+        case (4):
+        this.season.removeClass('spring').addClass('winter');
+                break;
         case (5):
         this.season.removeClass('winter').addClass('spring');
             break;
+        case (7):
+        this.season.removeClass('summer').addClass('spring');
+                break;
         case (8):
         this.season.removeClass('spring').addClass('summer');
             break;
+        case (9):
+        this.season.removeClass('autumn').addClass('spring');
+                break;
         case (10):
         this.season.removeClass('summer').addClass('autumn');
+            break;
+        case (11):
+          this.season.removeClass('season-end').addClass('autumn');
             break;
         case (12):
         this.season.removeClass('autumn').addClass('season-end');
