@@ -64,6 +64,10 @@ export default class Interaction {
       if (this.keyboard.eventMatches(event, "s")) {
         this.bird.jump();
       }
+      //debug
+      if (this.keyboard.eventMatches(event, "3")) {
+        this.bird.chill();
+      }
   
     });                            
   }

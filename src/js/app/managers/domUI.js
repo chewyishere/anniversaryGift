@@ -31,7 +31,8 @@ export default class domUI {
       this.back.addClass("hidden");
     }
 
-    showCal(){
+    startScene(){
+      this.firstpage.fadeOut(400).delay(200).remove();
       this.appContainer.removeClass("front");
       this.instruction.removeClass("fadeOut");
     }
@@ -44,10 +45,6 @@ export default class domUI {
     doneLoading(){
       this.loader.delay(100).fadeOut(400);
       this.loginField.delay(800).removeClass("fadeOut");
-    }
-
-    removeFirstPage(){
-      this.firstpage.fadeOut(400).delay(200).remove();
     }
 
     updateBg(){
@@ -72,13 +69,13 @@ export default class domUI {
         this.season.removeClass('spring').addClass('summer');
             break;
         case (9):
-        this.season.removeClass('autumn').addClass('spring');
-                break;
+        this.season.removeClass('autumn').addClass('summer');
+         break;
         case (10):
         this.season.removeClass('summer').addClass('autumn');
             break;
         case (11):
-          this.season.removeClass('season-end').addClass('autumn');
+        this.season.removeClass('season-end').addClass('autumn');a
             break;
         case (12):
         this.season.removeClass('autumn').addClass('season-end');

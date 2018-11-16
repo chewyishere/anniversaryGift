@@ -37,10 +37,9 @@ export default class PageUpdate {
       this.background.init(this.textures);
       this.light.spotLight.target = this.bird.mesh;
       this.updateScene();
+      this.domUI.startScene();
       this.spotInterval = setInterval(this.spot.jump.bind(this.spot), 2000);
       this.birdBlinkInterval = setInterval(this.bird.blink.bind(this.bird), 3000);
-      this.domUI.removeFirstPage();
-      this.domUI.showCal();
       this.ready = true;
     }
 
@@ -121,6 +120,10 @@ export default class PageUpdate {
            this.unicorn.reset();
            //this.domUI.hideArrow();
            this.meetTarget = false;
+          if(this.uniBlinkInterval === null && this.birdBlinkInterval === null){
+            this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
+            this.birdBlinkInterval = setInterval(this.bird.blink.bind(this.bird), 3000);
+          }
       }
 
 
@@ -131,7 +134,15 @@ export default class PageUpdate {
           this.meetTarget = true;
           this.bird.playAnimation();
           this.unicorn.playAnimation();
+          if(this.currentScene === 4) {
+            clearInterval(this.uniBlinkInterval);
+            clearInterval(this.birdBlinkInterval);
+            this.uniBlinkInterval = null;
+            this.birdBlinkInterval = null;
+          } else {
+          
           //this.domUI.showArrow();
+          }
         }
       }
 

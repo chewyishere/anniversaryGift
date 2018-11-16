@@ -101,7 +101,7 @@ export default class Bubbles {
 
         }
         if (this.onPage == 1){
-            lines = this.textLines.slice((6),(11));
+            lines = this.textLines.slice((6),(12));
         }
             
 

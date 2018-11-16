@@ -80,7 +80,12 @@ export default {
       { name: '62', image: '13-2.png' },
       { name: '63', image: '13-3.png' },
       { name: '64', image: '13-4.jpg' },
-      { name: '65', image: '13-5.jpg' }
+      { name: '65', image: '13-5.jpg' },
+      { name: '66', image: '14-1.png' },
+      { name: '67', image: '14-2.png' },
+      { name: '68', image: '14-3.png' },
+      { name: '69', image: '14-4.png' },
+      { name: '70', image: '14-5.png' }
     ]
   },
 
@@ -220,7 +225,7 @@ export default {
       { x: 200, y: 0, z: -150  }, //9 
       { x: 80, y: 0, z: 0 }, //10 
       { x: -50, y: 0, z: 0 }, //11 nathan
-      { x: -200, y: 0, z: 0 }, //12
+      { x: -200, y: 150, z: 0 }, //12
       { x: 50, y: 0, z: 0 }, //13
     ],
 
@@ -281,7 +286,11 @@ export default {
     },
     {//13
       bird: { x: 700, y:-100, z: 50 },
-      unicorn: { x: -800, y: -70, z: 50 }
+      unicorn: { x: -100, y: -70, z: 50 }
+    },
+    {//14
+      bird: { x: 700, y:-100, z: 0 },
+      unicorn: { x: -100, y: -70, z: 0 }
     }
   ],
 
@@ -358,7 +367,7 @@ export default {
       "it wasn't easy, but all the hard times we went through only brought us closer!",
     ],
     [
-      "Here comes my favorite time of the year!",
+      "My favorite time of the year!",
       "You already know,",
       "I'm so happy you finally got to see all my crazy friends,",
       "They are all of places, sometimes weird af,",
@@ -407,11 +416,18 @@ export default {
       "That's why we are perfect for each other :p"
     ],
     [
-      "We spent weeks as Kenta's slaves,",
-      "but it always feel good to help and make fun things",
-      "we both so kind, easily overcommited but can't help it",
-      "and loooove the things we do.",
-      "That's why we are great for each other :p"
+      "You made it!",
+      "Thanks for joining me this far!",
+      "and thank you for bringing me to your home.",
+      "it feels so real,",
+      "and natural,",
+      "maybe cuz you've already become my home.",
+      "You are the best thing ever happened to me,",
+      "I love everything we've been through,",
+      "and thrilled to start our new chapter.",
+      "I Love You baby.",
+      "You are my favorite.",
+      "HAPPY ANNIVERSARY!",
     ],
   ],
 
@@ -420,7 +436,7 @@ export default {
     { x: 1200, y: 802, z: -700 }, //2
     { x: 970, y: 582, z: -700 }, //3
     { x: 1024, y: 512, z: -700 }, //4
-    { x: 1512, y: 900, z: -1000 }, //5
+    { x: 1512, y: 900, z: -700 }, //5
     { x: 1280, y: 720, z: -700 }, //6
     { x: 1512, y: 802, z: -800 }, //7 
     { x: 1280, y: 800, z: -800 }, //8    
@@ -429,6 +445,6 @@ export default {
     { x: 1280, y: 720, z: -700 }, //11
     { x: 1280, y: 720, z: -700 },//12
     { x: 1280, y: 720, z: -700 },//13
-    { x: 1280, y: 720, z: -700 },//14
+    { x: 1400, y: 1368, z: -1400 },//14
   ]
 };
