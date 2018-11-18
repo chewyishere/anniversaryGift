@@ -49,6 +49,9 @@ export default class Interaction {
       if(event.repeat) {
         return;
       }
+
+      //debug
+
       if(this.keyboard.eventMatches(event, 'space')){
         console.log("debug start");
         this.domUI.loginField.fadeOut(300);
@@ -61,13 +64,14 @@ export default class Interaction {
         this.pageupdate.startScene();
         this.domUI.showArrow();
       }
+
       if (this.keyboard.eventMatches(event, "s")) {
         this.bird.jump();
       }
-      //debug
-      if (this.keyboard.eventMatches(event, "3")) {
-        this.bird.chill();
-      }
+      // //debug
+      // if (this.keyboard.eventMatches(event, "3")) {
+      //   this.bird.chill();
+      // }
   
     });                            
   }

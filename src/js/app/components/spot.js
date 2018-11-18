@@ -24,10 +24,18 @@ export default class Spot {
 
   jump(){
     var sp = 2;
-
     TweenMax.to(this.spot.scale, sp/2, {x:2, y:2, z:2, ease:Power3.easeOut});
     TweenMax.to(this.spot.scale, sp/2, {x:1, y:1, z:1, ease:Power3.easeIn, delay:sp/2});
+  }
 
+  arrive(){
+    var sp = 2;
+    TweenMax.to(this.spot.scale, sp/2, {x:0.1, y:0.1, z:0.1, ease:Power3.easeOut});
+  }
+
+  reset(){
+    var sp = 2;
+    TweenMax.to(this.spot.scale, sp/2, {x:1, y:1, z:1, ease:Power3.easeOut});
   }
 
   spin(){

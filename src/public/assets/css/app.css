@@ -70,6 +70,10 @@ body {
   height: 100vh;
  }
 
+ .hidden{
+   display:none;
+ }
+
  .front{
   z-index: 2;
  }
@@ -164,13 +168,17 @@ body {
 }
 
 .right{
-  position:absolute;
+  position: absolute;
   right: 100px;
+  opacity: 1;
+  transition:opacity .300s;
 }
 
 .left{
-  position:absolute;
-  left:100px;
+  position: absolute;
+  left: 100px;
+  opacity: 1;
+  transition:opacity .300s;
 }
 
 /* ARROWS https://codepen.io/anon/pen/NOQqGx */
@@ -467,10 +475,6 @@ body {
   z-index: -1;
 }
 
-.hidden{
-  display: none !important;
-}
-
 .dg.ac{
   z-index: 3!important;
 }
@@ -522,3 +526,68 @@ body {
    background-size: cover;
    background-position: 50% 50%;
 }
+
+
+.ending{
+  background: linear-gradient(to bottom, rgba(117, 114, 113, 0.4) 10%,
+   rgba(40, 49, 77, 0.5) 20%, rgba(29, 35, 71, 0.5) 30%, rgba(19, 25, 28, 0.5) 70%, rgba(15, 14, 14, .5) 100%),
+   url(https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
+.footer{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  z-index: 9;
+  background: transparent;
+}
+
+.footer-info{
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  top: 5px;
+  z-index: 9;
+  position: absolute;
+}
+
+.footer img{
+  position: absolute;
+  cursor: pointer;
+}
+
+.footer-container{
+  border: 2px solid #fff;
+  width: 240px;
+  height: 330px;
+  border-radius: 20px;
+  font-family: Trebuchet MS;
+  color: white;
+  line-height: 23px;
+  background: lightslategray;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.footer-content{
+  margin: 30px;
+}
+h3{
+  text-transform: uppercase;
+}
+.footer-content p{
+  margin-left: 10px;
+}
+.footer-content a{
+  color: bisque;
+}
+.footer-content p:last-child{
+  margin-left: 0px;
+}
+
+
+

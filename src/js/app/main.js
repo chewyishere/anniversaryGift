@@ -64,7 +64,6 @@ export default class Main {
 
     // Start loading the textures and then go on to load the model after the texture Promises have resolved
     this.texture.load().then(() => {
-      console.log("done loading!");
       this.domUI.doneLoading();
 
     });
@@ -82,6 +81,7 @@ export default class Main {
     
     this.light.place('bird');
 
+    
     this.render();
   }
 

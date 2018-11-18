@@ -23,7 +23,6 @@ export default class Bubbles {
             },
             complete: () => {
                 this.animStarted = false;
-                console.log(this.animStarted);
                 this.addText();
             }
         });
@@ -32,26 +31,26 @@ export default class Bubbles {
             .add({
                 targets: '#chat-bubble-wrapper',
                 opacity: 1,
-                duration: 300,
+                duration: 200,
                 autoplay: false,
             })
             .add({
                 targets: '#chat-bubble',
                 opacity: 1,
-                duration: 300,
+                duration: 200,
                 offset: 1
                 
             })
             .add({
                 targets: '#bubble',
                 width: [0, 430],
-                duration: 1000,
+                duration: 500,
                 offset: 1
             })
             .add({
                 targets: '#bubble-text-wrapper',
                 opacity: 1,
-                duration: 400,
+                duration: 150,
                 autoplay: false
             })
     }
@@ -63,7 +62,7 @@ export default class Bubbles {
     };
 
     bubbleComplete(){
-        this.textContainer.fadeOut(400);
+        this.textContainer.fadeOut(300);
         this.bubbleAnime.play();
         this.bubbleAnime.reverse();
 
@@ -90,7 +89,7 @@ export default class Bubbles {
 
     addText() {
         this.textContainer.empty();
-        this.textContainer.fadeIn(400);
+        this.textContainer.fadeIn(200);
         this.textLines = Config.chat[this.currentScene];
 
         this.hasfirstPage = (this.textLines.length > 6 && this.onPage == 0) ? true : false;
@@ -117,12 +116,14 @@ export default class Bubbles {
                 if(this.hasfirstPage && !this.dialogCompleted){
                     this.onPage = 1;
                     this.hasfirstPage = false;
-                    _this.textContainer.delay(1000).fadeOut(400);
+                    _this.textContainer.delay(1000).fadeOut(300);
                     setTimeout(this.addText.bind(_this),1500);
 
                 } else {
-                    this.domUI.showArrow();
                     this.dialogCompleted = true;
+                     if(this.currentScene === 0){
+                        this.domUI.showArrow();
+                     }
                 }
             }
         });
@@ -132,10 +133,10 @@ export default class Bubbles {
        this.textAnime.add({
            targets: "#bubble-text-wrapper span",
            opacity: 1,
-           duration: 800,
+           duration: 400,
            easing: 'linear',
            delay: function (el, i, l) {
-               return i * 1500;
+               return i * 1000;
            }
        })
 

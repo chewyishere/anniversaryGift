@@ -19,10 +19,6 @@ export default class PageUpdate {
         this.meetTarget = false;
     }
 
-    getCurrentScene() {
-      return this.currentScene;
-    }
-
     initScene(){
       this.unicorn.init();
       this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
@@ -74,8 +70,8 @@ export default class PageUpdate {
       assignScenes(){
         this.bird.currentScene = this.currentScene;
         this.unicorn.currentScene = this.currentScene;
-        this.background.currentScene = this.currentScene;
         this.domUI.currentScene = this.currentScene;
+        this.background.currentScene = this.currentScene;
         this.bubbles.currentScene = this.currentScene + 1;
 
       }
@@ -115,14 +111,17 @@ export default class PageUpdate {
       }
 
       resetGoals(){
+           this.domUI.hideArrow();
            this.bubbles.reset();
            this.bird.reset();
            this.unicorn.reset();
-           //this.domUI.hideArrow();
+           this.spot.reset();
+           this.spotInterval = setInterval(this.spot.jump.bind(this.spot), 2000);
            this.meetTarget = false;
           if(this.uniBlinkInterval === null && this.birdBlinkInterval === null){
             this.uniBlinkInterval = setInterval(this.unicorn.blink.bind(this.unicorn), 3500);
             this.birdBlinkInterval = setInterval(this.bird.blink.bind(this.bird), 3000);
+          
           }
       }
 
@@ -132,17 +131,20 @@ export default class PageUpdate {
         let distY = Math.abs(this.bird.mesh.position.y - this.spot.spot.position.y);
         if(distX < 20 && distY <= 100){
           this.meetTarget = true;
+          this.domUI.showArrow();
           this.bird.playAnimation();
           this.unicorn.playAnimation();
+          this.spot.arrive();
+          clearInterval( this.spotInterval);
+          this.spotInterval = null;
+
           if(this.currentScene === 4) {
             clearInterval(this.uniBlinkInterval);
             clearInterval(this.birdBlinkInterval);
             this.uniBlinkInterval = null;
             this.birdBlinkInterval = null;
-          } else {
-          
-          //this.domUI.showArrow();
-          }
+          } 
+         
         }
       }
 

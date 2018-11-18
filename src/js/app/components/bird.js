@@ -384,6 +384,7 @@ export default class Bird {
         TweenMax.to(this.leftIris.scale, sp, { y: 0.2, ease: ease });
         TweenMax.to(this.rightIris.scale, sp, { y: 0.2, ease: ease });
 
+        TweenMax.to(this.mesh.position, sp,{ z: 30, ease: ease });
         TweenMax.to(this.mesh.rotation, sp, { x: -0.5, ease: ease, onComplete: function () {
             _this.status = "chilling";
         } });

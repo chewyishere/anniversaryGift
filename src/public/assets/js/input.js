@@ -5,6 +5,9 @@ var hint = document.querySelector('#btn-hint');
 var start = document.querySelector('#btn-start');
 var inputArea = document.querySelector('.inputArea');
 var rose = document.querySelector('.passwordHint');
+var infoOff = document.querySelector('.btn-info--off');
+var infoOn = document.querySelector('.btn-info--on');
+var footer = document.querySelector('.footer-container');
 var field = {}
 var hasFocus = false;
 
@@ -35,6 +38,20 @@ hint.onmouseover = function () {
 hint.onmouseout = function () {
     rose.classList.add("fadeOut");
 }
+
+infoOff.onmousedown = function () {
+    infoOff.classList.add("fadeOut");
+    infoOn.classList.remove("fadeOut");
+    footer.classList.remove("fadeOut");
+}
+
+infoOn.onmousedown = function () {
+    infoOff.classList.remove("fadeOut");
+    infoOn.classList.add("fadeOut");
+    footer.classList.add("fadeOut");
+}
+
+
 
 var keys = [8, 9, 13, 16, 17, 18, 27, 32, 33, 34, 35, 36, 37, 38, 39, 40, 46, 91, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123];
 function spawnsCharacter(keyCode) {
@@ -192,16 +209,13 @@ simulate(
             caret.textContent = input.value;
             burst.call(this, 12);
 
-            if (caret.textContent === "iloveyou") {
-                hint.classList.add("hidden");
+            if (caret.textContent.toLowerCase() == "iloveyou") {
+                hint.classList.add("fadeOut");
                 start.classList.remove("fadeOut");
 
-            } else {
-             
-                if(hint.classList.contains("hidden")){
-                hint.classList.remove("hidden");
+            } else if(hint.classList.contains("fadeOut")){
+                hint.classList.remove("fadeOut");
                 start.classList.add("fadeOut");
-                }
             }
 
             input.classList.add('keyup');

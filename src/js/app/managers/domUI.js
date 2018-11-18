@@ -18,17 +18,21 @@ export default class domUI {
     this.bubblePos = $('#page-bubbles');
     this.season = $('.snow');
     this.instruction = $('#instruction');
-    this.currentScene = 0;
+    this.currentScene = null;
     }
 
     showArrow(){
-      this.next.removeClass("hidden");
-      this.back.removeClass("hidden");
+      if (this.currentScene !== 13){
+        this.next.removeClass("fadeOut");
+      }
+      if  (this.currentScene !== 0){
+        this.back.removeClass("fadeOut");
+      }
     }
 
     hideArrow(){
-      this.next.addClass("hidden");
-      this.back.addClass("hidden");
+      this.next.addClass("fadeOut");
+      this.back.addClass("fadeOut");
     }
 
     startScene(){
@@ -75,11 +79,16 @@ export default class domUI {
         this.season.removeClass('summer').addClass('autumn');
             break;
         case (11):
-        this.season.removeClass('season-end').addClass('autumn');a
+        this.season.removeClass('season-end').addClass('autumn');
             break;
         case (12):
-        this.season.removeClass('autumn').addClass('season-end');
-            break;
+        this.season.removeClass('ending').removeClass('autumn').addClass('season-end');
+        break;
+        case (13):
+        this.season.removeClass('seadson-end').addClass('ending');
+        break;
+        
+
         default: 
           return;
       }
