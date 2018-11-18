@@ -4,6 +4,7 @@ import { Promise } from 'es6-promise';
 
 import Helpers from '../../utils/helpers';
 import Config from '../../data/config';
+import DomUI from '../managers/domUI';
 
 // This class preloads all textures in the imageFiles array in the Config via ES6 Promises.
 // Once all textures are done loading the model itself will be loaded after the Promise .then() callback.
@@ -13,6 +14,7 @@ export default class Texture {
   constructor() {
     // Prop that will contain all loaded textures
     this.textures = {};
+    this.domUI = new DomUI();
     this.loadingTime = 0;
   }
 
@@ -49,7 +51,9 @@ export default class Texture {
     return Promise.all(promiseArray).then(textures => {
       // Set the textures prop object to have name be the resolved texture
       for(let i = 0; i < textures.length; i++) {
-        this.loadingTime = i/textures.length;
+        this.loadingTime = Math.round(i/textures.length) * 100;
+        this.domUI.loaderPercent.text(this.loadingTime + "%");
+        console.log(this.domUI.loaderPercent.text());
         this.textures[Object.keys(textures[i])[0]] = textures[i][Object.keys(textures[i])[0]];
       }
     }, reason => console.log(reason));

@@ -52,18 +52,18 @@ export default class Interaction {
 
       //debug
 
-      if(this.keyboard.eventMatches(event, 'space')){
-        console.log("debug start");
-        this.domUI.loginField.fadeOut(300);
-        this.domUI.appContainer.removeClass("fadeOut");
-        this.pageupdate.initScene();
-      }
+      // if(this.keyboard.eventMatches(event, 'space')){
+      //   console.log("debug start");
+      //   this.domUI.loginField.fadeOut(300);
+      //   this.domUI.appContainer.removeClass("fadeOut");
+      //   this.pageupdate.initScene();
+      // }
       
-      if (this.keyboard.eventMatches(event, "2")) {
-        this.domUI.firstpage.fadeOut(300);
-        this.pageupdate.startScene();
-        this.domUI.showArrow();
-      }
+      // if (this.keyboard.eventMatches(event, "2")) {
+      //   this.domUI.firstpage.fadeOut(300);
+      //   this.pageupdate.startScene();
+      //   this.domUI.showArrow();
+      // }
 
       if (this.keyboard.eventMatches(event, "s")) {
         this.bird.jump();

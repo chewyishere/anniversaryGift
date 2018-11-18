@@ -9,6 +9,7 @@ export default class domUI {
     this.loginField = $(".inputArea");
     this.start = $("#btn-start");
     this.firstpage = $("#firstpage");
+    this.cal = $(".cal");
     this.year = $("#cal-year");
     this.month = $("#cal-month");
     this.bubbleText = $("#bubble-text");
@@ -18,6 +19,7 @@ export default class domUI {
     this.bubblePos = $('#page-bubbles');
     this.season = $('.snow');
     this.instruction = $('#instruction');
+    this.loaderPercent = $('#loaderPercent');
     this.currentScene = null;
     }
 
@@ -39,6 +41,7 @@ export default class domUI {
       this.firstpage.fadeOut(400).delay(200).remove();
       this.appContainer.removeClass("front");
       this.instruction.removeClass("fadeOut");
+      this.cal.removeClass("fadeOut");
     }
 
     updateCal(){
@@ -52,7 +55,6 @@ export default class domUI {
     }
 
     updateBg(){
-      console.log("update bg" + this.currentScene);
       switch (this.currentScene) {
         case (1):
         this.season.removeClass('winter').addClass('season-start');

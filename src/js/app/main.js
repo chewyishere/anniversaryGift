@@ -1,6 +1,5 @@
 // Global imports -
 import * as THREE from 'three';
-import TWEEN from 'tween.js';
 
 // Local imports -
 // Components
@@ -10,7 +9,6 @@ import Light from './components/light';
 import Controls from './components/controls';
 
 // Helpers
-import Geometry from './helpers/geometry';
 import Stats from './helpers/stats';
 
 // Model
