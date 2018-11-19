@@ -481,6 +481,7 @@ body {
   opacity: 0 !important;
   transition:all .400s;
   z-index: -1;
+  pointer-events: none;
 }
 
 .dg.ac{
@@ -598,5 +599,10 @@ h3{
   margin-left: 0px;
 }
 
-
-
+.footer audio{
+  width: 300px;
+  height: 54px;
+  bottom: 10px;
+  position: fixed;
+  opacity: 0.5;
+}

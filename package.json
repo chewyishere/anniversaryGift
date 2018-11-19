@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "run-p dev:sass webpack-server",
     "build": "run-s prebuild build:dir build:js build:sass",
-    "prebuild": "run-s clean lint",
+    "prebuild": "run-s clean",
     "clean": "rimraf build",
     "lint": "eslint src/js/",
     "webpack-server": "set NODE_ENV=0&& webpack-dev-server --progress --color --open --hot",

@@ -34,7 +34,9 @@ export default class Texture {
           // This gets called on load with the loaded texture
           texture => {
             texture.anisotropy = maxAnisotropy;
-
+            this.loadingTime += 100/70;
+            let percent = Math.round(this.loadingTime);
+            this.domUI.loaderPercent.text(percent + "%");
             // Resolve Promise with object of texture if it is instance of THREE.Texture
             const bgTextures = {};
             bgTextures[imageFile.name] = texture;
@@ -51,9 +53,6 @@ export default class Texture {
     return Promise.all(promiseArray).then(textures => {
       // Set the textures prop object to have name be the resolved texture
       for(let i = 0; i < textures.length; i++) {
-        this.loadingTime = Math.round(i/textures.length) * 100;
-        this.domUI.loaderPercent.text(this.loadingTime + "%");
-        console.log(this.domUI.loaderPercent.text());
         this.textures[Object.keys(textures[i])[0]] = textures[i][Object.keys(textures[i])[0]];
       }
     }, reason => console.log(reason));
