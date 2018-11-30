@@ -34,7 +34,9 @@ export default class domUI {
 
     hideArrow(){
       this.next.addClass("fadeOut");
-      this.back.addClass("fadeOut");
+      if  (this.currentScene === 0){
+         this.back.addClass("fadeOut");
+      }
     }
 
     startScene(){
