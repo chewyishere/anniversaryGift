@@ -38,4 +38,3 @@ npm run build
 ```
 
 Cleans existing build folder while linting js folder and then copies over the public folder from src. Then sets environment to production and compiles js and css into build.
-```
