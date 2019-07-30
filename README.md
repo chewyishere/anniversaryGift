@@ -12,8 +12,6 @@ WIP
 
 ## Developments
 
-``` 
-
 Install dependencies:
 
 ```
