@@ -1,7 +1,6 @@
-# a 3D lil game using Three.js Webpack ES6.
+# a little 3D game using Three.js Webpack ES6.
 
 ## Game Controls
-
 - Move: a d
 - Jump: s
 - Scrollwheel: zoom
@@ -9,12 +8,12 @@
 - Control settings: Config.js
 
 ## Guest player
-
 WIP
 
-```
-
 ## Developments
+
+``` 
+
 Install dependencies:
 
 ```
