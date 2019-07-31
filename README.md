@@ -1,4 +1,4 @@
-# a little 3D game using Three.js Webpack ES6.
+# A little 3D game using Three.js Webpack ES6.
 
 ## Game Controls
 - Move: a d
@@ -9,7 +9,7 @@
 - Control settings: Config.js
 
 ## Guest player
-- type: 'guest'
+- password: 'guest'
 
 ## Developments
 
