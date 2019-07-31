@@ -1,7 +1,6 @@
-# a 3D lil game using Three.js Webpack ES6.
+# a little 3D game using Three.js Webpack ES6.
 
 ## Game Controls
-
 - Move: a d
 - Jump: s
 - Scrollwheel: zoom
@@ -9,12 +8,10 @@
 - Control settings: Config.js
 
 ## Guest player
-
 WIP
 
-```
-
 ## Developments
+
 Install dependencies:
 
 ```
@@ -41,4 +38,3 @@ npm run build
 ```
 
 Cleans existing build folder while linting js folder and then copies over the public folder from src. Then sets environment to production and compiles js and css into build.
-```
