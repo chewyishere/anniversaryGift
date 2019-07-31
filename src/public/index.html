@@ -1,116 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chicken & Unicorn</title>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Chicken & Unicorn</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/app.css" />
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="./assets/css/app.css">
-</head>
-
-<body>
-  <section id="appContainer" class="main fadeOut front">
-    <div class="snow season-start"></div>
-  </section>
-  <div id="instruction" class="fadeOut">
-    <p>
-      * press
-      <span class="instruction-keys" style="margin-right:0;"> a </span>
-      <span class="instruction-keys"> s </span>
-      <span class="instruction-keys" style="margin-left:0;"> d </span>
-      to move to the spot
-      <span class="instruction-spot"></span>
-    </p>
-    <p>
-      * drag to view different angle
-    </p>
-    <p>
-      * scroll to zoom in and out
-    </p>
-  </div>
-  <div class="cal fadeOut">
-    <div id="cal-year">2017</div>
-    <div id="cal-month">NOV</div>
-  </div>
-  <div id="nav-arrow-right" class="fadeOut">
-    <div class="round">
-      <div id="cta">
-        <span class="arrowRight primera next"></span>
-        <span class="arrowRight segunda next"></span>
-      </div>
+  <body>
+    <section id="appContainer" class="main fadeOut front">
+      <div class="snow season-start"></div>
+    </section>
+    <div id="guestHint">For guest experience: 'GUEST'</div>
+    <div id="guest" class="fadeOut">
+      <p>Alright stranger, wanna checkout my personal love story? How embrassing!</p>
+      <p>
+        Well, just make sure you know how to skip the
+        <span class="guest-pink">boring dialogs</span> by pressing "
+        <span class="guest-keys">space</span>"
+      </p>
+      <p>enjoy!</p>
     </div>
-  </div>
-  </div>
-  <div id="nav-arrow-left" class="fadeOut">
-    <div class="round">
-      <div id="cta">
-        <span class="arrowLeft primera previous"></span>
-        <span class="arrowLeft segunda previous"></span>
-      </div>
+    <div id="instruction" class="fadeOut">
+      <p><strong>INSTRUCTIONS</strong></b>
+      <p>
+        * press
+        <span class="instruction-keys" style="margin-right:0;"> a </span>
+        <span class="instruction-keys"> s </span>
+        <span class="instruction-keys" style="margin-left:0;"> d </span>
+        to move to the spot
+        <span class="instruction-spot"></span>
+      </p>
+      <p>
+          * press<span class="instruction-key"> space </span>to skip dialogs / unlock stages.
+      </p>
+      <p>
+        * drag to view different angle
+      </p>
+      <p>
+        * scroll to zoom in and out
+      </p>
     </div>
-  </div>
-  </div>
-
-  <div id="firstpage" class="">
-    <div id="loader">Loading...
-      <span id="loaderPercent">0%</span>
+    <div class="cal fadeOut">
+      <div id="cal-year">2017</div>
+      <div id="cal-month">NOV</div>
     </div>
-    <div class="snow season-start"></div>
-    <div id="particles-js"></div>
-    <div class="passwordHint fadeOut"></div>
-    <div class="inputArea fadeOut">
-      <input id="input-ps" type="text" placeholder="password" maxlength="8" />
-      <button id="btn-hint" class="inputArea-hint">hint</button>
-      <button id="btn-start" class="inputArea-start fadeOut">&#10084;</button>
-    </div>
-  </div>
-
-  <div id="page-bubbles">
-    <div class="bubble-container">
-      <svg id="bubbles" xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 950 850">
-        <g id="chat-bubble-wrapper" data-name="chat bubble" opacity="0" width="500" height="600">
-          <g id="chat-bubble" opacity="0">
-            <rect id="bubble" x="145.5" y="70.5" width="430" height="600" rx="47.37" ry="47.37" style="fill:#fff" />
-            <polygon id="bubble-tail" points="134.27 678.08 198.82 654.03 145.72 610.15 134.27 678.08" style="fill:#fff" />
-          </g>
-        </g>
-      </svg>
-      <div id="bubble-text-wrapper">
-        <span class="chat-text">Oh Hey!</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-      <audio autoplay controls loop>
-          <source src="https://s3.amazonaws.com/tomyfavoritechicken.one/assets/audio/withu_NLVK.mp3" type="audio/mpeg">
-      </audio>
-    <div class="footer-info">
-        <img class="btn-info--off" src="./assets/image/information.svg" alt="info">
-        <img class="btn-info--on fadeOut" src="./assets/image/information-on.svg" alt="info">
-    </div>
-    <div class="footer-container fadeOut">
-        <div class="footer-content">
-        <h3>made with:</h3>
-        <p>3js, Photoshop, webpack, TweenMax, Particlejs, 
-        <br />icloud photos, instagram photos
-        <br />extensive love 
-        <br />7 days of coffee
-        </p>
-        <h3>for </h3> <p>Stephen Duke </p>
-        <h3>from </h3> <p><a href="http://chewy.ninja"> Yours Truely </a></p>
-        <p>* sorry, not for mobile :/</p>
+    <div id="nav-arrow-right" class="fadeOut">
+      <div class="round">
+        <div id="cta">
+          <span class="arrowRight primera next"></span>
+          <span class="arrowRight segunda next"></span>
         </div>
+      </div>
     </div>
-  </div>
+    <div id="nav-arrow-left" class="fadeOut">
+      <div class="round">
+        <div id="cta">
+          <span class="arrowLeft primera previous"></span>
+          <span class="arrowLeft segunda previous"></span>
+        </div>
+      </div>
+    </div>
 
-  <script src="./assets/js/rStats.js"></script>
-  <script src="./assets/js/rStats.extras.js"></script>
-  <script src="./assets/js/dat.gui.min.js"></script>
-  <script src="./assets/js/app.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="./assets/js/particles.js"></script>
-  <script src="./assets/js/input.js"></script>
-</body>
+    <div id="firstpage" class="">
+      <div id="loader">
+        Loading...
+        <span id="loaderPercent">0%</span>
+      </div>
+      <div class="snow season-start"></div>
+      <div id="particles-js"></div>
+      <div class="passwordHint fadeOut"></div>
+      <div class="inputArea fadeOut">
+        <input id="input-ps" type="text" placeholder="password" maxlength="8" />
+        <button id="btn-hint" class="inputArea-hint">hint</button>
+        <button id="btn-start" class="inputArea-start fadeOut">&#10084;</button>
+      </div>
+    </div>
 
+    <div id="page-bubbles">
+      <div class="bubble-container">
+        <svg
+          id="bubbles"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="-50 -50 950 850"
+        >
+          <g
+            id="chat-bubble-wrapper"
+            data-name="chat bubble"
+            opacity="0"
+            width="500"
+            height="600"
+          >
+            <g id="chat-bubble" opacity="0">
+              <rect
+                id="bubble"
+                x="145.5"
+                y="70.5"
+                width="430"
+                height="600"
+                rx="47.37"
+                ry="47.37"
+                style="fill:#fff"
+              />
+              <polygon
+                id="bubble-tail"
+                points="134.27 678.08 198.82 654.03 145.72 610.15 134.27 678.08"
+                style="fill:#fff"
+              />
+            </g>
+          </g>
+        </svg>
+        <div id="bubble-text-wrapper">
+          <span class="chat-text">Oh Hey!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <audio autoplay controls loop>
+        <source
+          src="https://s3.amazonaws.com/tomyfavoritechicken.one/assets/audio/withu_NLVK.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+      <div class="footer-info">
+        <img
+          class="btn-info--off"
+          src="./assets/image/information.svg"
+          alt="info"
+        />
+        <img
+          class="btn-info--on fadeOut"
+          src="./assets/image/information-on.svg"
+          alt="info"
+        />
+      </div>
+      <div class="footer-container fadeOut">
+        <div class="footer-content">
+          <h3>made with:</h3>
+          <p>
+            3js, Photoshop, webpack, Particlejs, <br />icloud photos, instagram
+            photos <br />extensive love <br />7 days of coffee
+          </p>
+          <h3>for</h3>
+          <p>my love: Stephen Duke</p>
+          <h3>from</h3>
+          <p><a href="http://chewy.ninja"> Yours Truely </a></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/rStats.js"></script>
+    <script src="./assets/js/rStats.extras.js"></script>
+    <script src="./assets/js/dat.gui.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./assets/js/particles.js"></script>
+    <script src="./assets/js/input.js"></script>
+  </body>
 </html>

@@ -1,7 +1,7 @@
-import Keyboard from '../../utils/keyboard';
-import Helpers from '../../utils/helpers';
-import Config from '../../data/config';
-import DomUI from './domUI';
+import Keyboard from "../../utils/keyboard";
+import Helpers from "../../utils/helpers";
+import Config from "../../data/config";
+import DomUI from "./domUI";
 
 // Manages all input interactions
 export default class Interaction {
@@ -10,8 +10,11 @@ export default class Interaction {
     this.renderer = main.renderer.threeRenderer;
     this.scene = main.scene;
     this.camera = main.camera.threeCamera;
-    this.mousePos = {x:0,y:0};
-    this.windowSize = {width: window.innerWidth/2, height: window.innerHeight/2};
+    this.mousePos = { x: 0, y: 0 };
+    this.windowSize = {
+      width: window.innerWidth / 2,
+      height: window.innerHeight / 2
+    };
     this.timeout = null;
     this.triggerEvent = null;
     this.bird = main.bird;
@@ -27,43 +30,58 @@ export default class Interaction {
     // Listeners
     // Mouse events
     this.domUI.start.click(event => this.onMouseInit(event));
-    this.domUI.start.on('touchstart', this.handleTouchInit);
+    this.domUI.start.on("touchstart", this.handleTouchInit);
 
     this.domUI.next.click(event => this.onMouseNext(event));
-    this.domUI.next.on('touchstart', this.handleTouchStartNext);
+    this.domUI.next.on("touchstart", this.handleTouchStartNext);
 
     this.domUI.back.click(event => this.onMouseBack(event));
-    this.domUI.back.on('touchstart', this.handleTouchStartBack);
+    this.domUI.back.on("touchstart", this.handleTouchStartBack);
 
-
-    this.renderer.domElement.addEventListener('resize', (event) => this.onWindowResize, false);
-    this.renderer.domElement.addEventListener('mousemove', (event) => Helpers.throttle(this.onMouseMove(event), 250), false);
-    this.renderer.domElement.addEventListener('mouseleave', (event) => this.onMouseLeave(event), false);
-    this.renderer.domElement.addEventListener('mouseover', (event) => this.onMouseOver(event), false);
-    this.renderer.domElement.addEventListener('touchend', this.handleTouchEnd, false);
-    this.renderer.domElement.addEventListener('touchmove',this.handleTouchMove, false);
+    this.renderer.domElement.addEventListener(
+      "resize",
+      event => this.onWindowResize,
+      false
+    );
+    this.renderer.domElement.addEventListener(
+      "mousemove",
+      event => Helpers.throttle(this.onMouseMove(event), 250),
+      false
+    );
+    this.renderer.domElement.addEventListener(
+      "mouseleave",
+      event => this.onMouseLeave(event),
+      false
+    );
+    this.renderer.domElement.addEventListener(
+      "mouseover",
+      event => this.onMouseOver(event),
+      false
+    );
+    this.renderer.domElement.addEventListener(
+      "touchend",
+      this.handleTouchEnd,
+      false
+    );
+    this.renderer.domElement.addEventListener(
+      "touchmove",
+      this.handleTouchMove,
+      false
+    );
 
     // Keyboard events
-    this.keyboard.domElement.addEventListener('keydown', (event) => {
+    this.keyboard.domElement.addEventListener("keydown", event => {
       // Only once
-      if(event.repeat) {
+      if (event.repeat) {
         return;
       }
 
       //debug
 
-      // if(this.keyboard.eventMatches(event, 'space')){
-      //   console.log("debug start");
-      //   this.domUI.loginField.fadeOut(300);
-      //   this.domUI.appContainer.removeClass("fadeOut");
-      //   this.pageupdate.initScene();
-      // }
-      
-      // if (this.keyboard.eventMatches(event, "2")) {
-      //   this.domUI.firstpage.fadeOut(300);
-      //   this.pageupdate.startScene();
-      //   this.domUI.showArrow();
-      // }
+      if (this.keyboard.eventMatches(event, "space")) {
+        this.bubbles.forceStop();
+        this.domUI.showArrow();
+      }
 
       if (this.keyboard.eventMatches(event, "s")) {
         this.bird.jump();
@@ -72,34 +90,31 @@ export default class Interaction {
       // if (this.keyboard.eventMatches(event, "3")) {
       //   this.bird.chill();
       // }
-  
-    });                            
+    });
   }
 
- 
-  move(){
-      if(this.keyboard.pressed('d')) {
-        this.bird.moveRight();
-      };
-    
-      if(this.keyboard.pressed('a')){
-        this.bird.moveLeft();
-      };
+  move() {
+    if (this.keyboard.pressed("d")) {
+      this.bird.moveRight();
+    }
 
-      this.pageupdate.detectDistance();
+    if (this.keyboard.pressed("a")) {
+      this.bird.moveLeft();
+    }
 
+    this.pageupdate.detectDistance();
   }
 
   onWindowResize() {
     var HEIGHT = window.innerHeight;
     var WIDTH = window.innerWidth;
-    this.windowSize = (WIDTH /2, HEIGHT / 2);
+    this.windowSize = (WIDTH / 2, HEIGHT / 2);
     this.renderer.setSize(WIDTH, HEIGHT);
     this.camera.aspect = WIDTH / HEIGHT;
     this.camera.updateProjectionMatrix();
   }
 
-  onMouseInit(event){
+  onMouseInit(event) {
     this.domUI.loginField.fadeOut(300);
     this.domUI.appContainer.removeClass("fadeOut");
     this.pageupdate.initScene();
@@ -108,7 +123,7 @@ export default class Interaction {
   handleTouchInit(event) {
     if (event.touches.length > 1) {
       event.preventDefault();
-      this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
+      this.mousePos = { x: event.touches[0].pageX, y: event.touches[0].pageY };
       this.pageupdate.initScene();
     }
   }
@@ -116,19 +131,18 @@ export default class Interaction {
   handleTouchStart(event) {
     if (event.touches.length > 1) {
       event.preventDefault();
-      this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
-      
-      this.pageupdate.startScene()
+      this.mousePos = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+
+      this.pageupdate.startScene();
       this.domUI.firstpage.fadeOut(300);
     }
+  }
 
-}
-  
   onMouseNext(event) {
-    if(!this.pageupdate.ready){
+    if (!this.pageupdate.ready) {
       this.domUI.firstpage.fadeOut(300);
       this.pageupdate.startScene();
-    }else{
+    } else {
       this.pageupdate.nextScene();
     }
   }
@@ -157,40 +171,39 @@ export default class Interaction {
     }, 200);
 
     Config.isMouseMoving = true;
-    this.mousePos = {x:event.clientX, y:event.clientY};
+    this.mousePos = { x: event.clientX, y: event.clientY };
   }
 
-   handleTouchNext(event) {
+  handleTouchNext(event) {
     if (event.touches.length > 1) {
       event.preventDefault();
-      this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
+      this.mousePos = { x: event.touches[0].pageX, y: event.touches[0].pageY };
       this.pageupdate.nextScene();
     }
   }
-  
+
   handleTouchBack(event) {
     if (event.touches.length > 1) {
       event.preventDefault();
-      this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
+      this.mousePos = { x: event.touches[0].pageX, y: event.touches[0].pageY };
       this.pageupdate.previousScene();
     }
   }
 
-   handleTouchEnd(event) {
-      this.mousePos = {x:windowHalfX, y:windowHalfY};
+  handleTouchEnd(event) {
+    this.mousePos = { x: windowHalfX, y: windowHalfY };
   }
-  
-   handleTouchMove(event) {
+
+  handleTouchMove(event) {
     if (event.touches.length == 1) {
       event.preventDefault();
-      this.mousePos = {x:event.touches[0].pageX, y:event.touches[0].pageY};
+      this.mousePos = { x: event.touches[0].pageX, y: event.touches[0].pageY };
     }
   }
 
-  loop(){
-    if(this.pageupdate.ready && !this.pageupdate.meetTarget){
+  loop() {
+    if (this.pageupdate.ready && !this.pageupdate.meetTarget) {
       this.move();
     }
   }
-
 }
