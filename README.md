@@ -3,12 +3,13 @@
 ## Game Controls
 - Move: a d
 - Jump: s
+- Skip dialogs and auto unlock stages: space
 - Scrollwheel: zoom
 - Drag: pan and rotate
 - Control settings: Config.js
 
 ## Guest player
-WIP
+- type: 'guest'
 
 ## Developments
 
