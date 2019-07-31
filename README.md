@@ -6,7 +6,6 @@
 - Skip dialogs and auto unlock stages: space
 - Scrollwheel: zoom
 - Drag: pan and rotate
-- Control settings: Config.js
 
 ## Guest player
 - password: 'guest'
